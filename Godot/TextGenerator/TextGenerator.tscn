@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://TextGenerator/TextGeneratorSprite.gd" type="Script" id=1]
+[ext_resource path="res://TextGenerator/TextGenerator.gd" type="Script" id=2]
+
+[node name="TextGenerator" type="Spatial"]
+script = ExtResource( 2 )
+text_speed = 0.001
+
+[node name="TextGeneratorSprite" type="Sprite3D" parent="."]
+script = ExtResource( 1 )
+
+[node name="StoryBox" type="Viewport" parent="TextGeneratorSprite"]
+size = Vector2( 358, 184 )
+transparent_bg = true
+handle_input_locally = false
+render_target_v_flip = true
+render_target_update_mode = 3
+
+[node name="TextRender" type="Label" parent="TextGeneratorSprite/StoryBox"]
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "THIS IS THE STORYTHIS IS THE STORYTHIS IS THE 
+STORYTHIS IS THE STORYTHIS IS THE STORYTHIS 
+IS THE STORYTHIS IS THE STORYTHIS IS THE STORYTHIS 
+IS THE STORYTHIS IS THE STORYTHIS IS THE STORYTHIS
+ IS THE STORYTHIS IS THE STORYTHIS IS THE STORYTHI
+S IS THE STORYTHIS IS THE STORYTHIS IS THE STORYTHI
+S IS THE STORYTHIS IS THE STORYTHIS IS THE STORYTH
+IS IS THE STORYTHIS IS THE STORYTHIS IS THE STORYTHI
+S IS THE STORYTHIS IS THE STORYTHIS IS THE STORYTHIS
+
+ IS THE STORY"
+align = 3
+valign = 3
