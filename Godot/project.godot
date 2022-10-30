@@ -10,8 +10,13 @@ config_version=4
 
 [application]
 
-config/name="Godot"
+config/name="Crimson Ink"
+run/main_scene="res://Autoload/Menu/Menu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+GameEvents="*res://Autoload/GameEvents/GameEvents.tscn"
 
 [gui]
 
