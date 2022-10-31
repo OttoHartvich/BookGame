@@ -1,64 +1,35 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://TextGenerator/TextGenerator.gd" type="Script" id=2]
-[ext_resource path="res://TextGenerator/Button.gd" type="Script" id=3]
+
+[sub_resource type="ViewportTexture" id=1]
+viewport_path = NodePath("Sprite3d/StoryBox")
 
 [node name="TextGenerator" type="Spatial"]
 script = ExtResource( 2 )
 text_speed = 0.004
-viewport = NodePath("ViewportContainer/StoryBox")
-text_render = NodePath("ViewportContainer/StoryBox/MarginContainer/TextRender")
+viewport = NodePath("Sprite3d/StoryBox")
+text_render = NodePath("Sprite3d/StoryBox/MarginContainer/TextRender")
 
-[node name="ViewportContainer" type="ViewportContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Sprite3d" type="Sprite3D" parent="."]
+texture = SubResource( 1 )
 
-[node name="StoryBox" type="Viewport" parent="ViewportContainer"]
+[node name="StoryBox" type="Viewport" parent="Sprite3d"]
 size = Vector2( 500, 500 )
-size_override_stretch = true
 handle_input_locally = false
+render_target_v_flip = true
 render_target_update_mode = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="ViewportContainer/StoryBox"]
+[node name="MarginContainer" type="MarginContainer" parent="Sprite3d/StoryBox"]
 margin_right = 40.0
 margin_bottom = 40.0
-size_flags_horizontal = 2
-size_flags_vertical = 2
+custom_constants/margin_right = 10
 
-[node name="TextRender" type="Label" parent="ViewportContainer/StoryBox/MarginContainer"]
+[node name="TextRender" type="RichTextLabel" parent="Sprite3d/StoryBox/MarginContainer"]
 modulate = Color( 0.517647, 0, 0, 1 )
-margin_right = 358.0
-margin_bottom = 184.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-text = "THIS IS THE STORYTHIS IS THE STORYTHIS IS THE 
-STORYTHIS IS THE STORYTHIS IS THE STORYTHIS 
-IS THE STORYTHIS IS THE STORYTHIS IS THE STORYTHIS 
-IS THE STORYTHIS IS THE STORYTHIS IS THE STORYTHIS
- IS THE STORYTHIS IS THE STORYTHIS IS THE STORYTHI
-S IS THE STORYTHIS IS THE STORYTHIS IS THE STORYTHI
-S IS THE STORYTHIS IS THE STORYTHIS IS THE STORYTH
-IS IS THE STORYTHIS IS THE STORYTHIS IS THE STORYTHI
-S IS THE STORYTHIS IS THE STORYTHIS IS THE STORYTHIS
-
- IS THE STORY"
-align = 3
-valign = 3
-
-[node name="Buttons" type="HBoxContainer" parent="ViewportContainer/StoryBox"]
-margin_top = 200.0
-margin_right = 52.0
-margin_bottom = 20.0
-mouse_filter = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-
-[node name="GoTo1" type="Button" parent="ViewportContainer/StoryBox/Buttons"]
-margin_right = 52.0
-margin_bottom = 20.0
-text = "go left"
-script = ExtResource( 3 )
-parent = NodePath("../../../..")
-
-[connection signal="pressed" from="ViewportContainer/StoryBox/Buttons/GoTo1" to="." method="_on_GoTo1_pressed"]
-[connection signal="pressed" from="ViewportContainer/StoryBox/Buttons/GoTo1" to="ViewportContainer/StoryBox/Buttons/GoTo1" method="_on_GoTo1_pressed"]
+margin_right = 30.0
+margin_bottom = 40.0
+meta_underlined = false
+tab_size = 6
+scroll_active = false
+deselect_on_focus_loss_enabled = false

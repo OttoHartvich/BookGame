@@ -11,8 +11,8 @@ script = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.679844, 0.896747 )
 
 [node name="PageManager" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.780845, 0.624725, 0, -0.624725, 0.780845, -0.472937, 0.578775, -1.26608 )
+transform = Transform( 1, 0, 0, 0, 0.999997, -0.0023911, 0, 0.0023911, 0.999997, -0.472937, 0.719334, -4.11176 )
 script = ExtResource( 3 )
 
 [node name="Intro" parent="PageManager" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 0.983747, -0.179558, 0, 0.179558, 0.983747, 0, -0.269302, 0.335533 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72266, 0, 0 )

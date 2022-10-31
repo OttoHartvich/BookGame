@@ -1,10 +1,11 @@
 extends CanvasLayer
 
 	
-func _on_QuitBtn_button_up():
+func _on_QuitBtn_pressed():
 	get_tree().quit()
 
 func _on_StartBtn_pressed():
-	GameEvents.emit_signal("on_start_game")
-	print('starting game')
 	get_tree().change_scene("res://Scenes/Main.tscn")
+	GameEvents.emit_signal("on_start_game")
+
+

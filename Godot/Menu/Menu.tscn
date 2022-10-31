@@ -72,6 +72,5 @@ margin_bottom = 111.0
 size_flags_vertical = 0
 text = "Quit"
 
-[connection signal="button_up" from="Menu/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_StartBtn_button_up"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_StartBtn_pressed"]
-[connection signal="button_up" from="Menu/MarginContainer/VBoxContainer/QuitBtn" to="." method="_on_QuitBtn_button_up"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/QuitBtn" to="." method="_on_QuitBtn_pressed"]
