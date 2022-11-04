@@ -6,7 +6,6 @@
 
 [node name="TextGenerator" type="Node2D"]
 script = ExtResource( 2 )
-text_speed = 0.01
 text_render = NodePath("Interface/MarginContainer/VBoxContainer/TextRender")
 
 [node name="Spatial" type="Spatial" parent="."]
@@ -40,7 +39,7 @@ custom_constants/margin_bottom = 10
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 390.0
-margin_bottom = 205.0
+margin_bottom = 204.0
 
 [node name="TextRender" type="RichTextLabel" parent="Interface/MarginContainer/VBoxContainer"]
 modulate = Color( 0.517647, 0, 0, 1 )
