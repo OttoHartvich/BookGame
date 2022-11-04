@@ -39,7 +39,7 @@ custom_constants/margin_bottom = 10
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 390.0
-margin_bottom = 229.0
+margin_bottom = 209.0
 
 [node name="TextRender" type="RichTextLabel" parent="Interface/MarginContainer/VBoxContainer"]
 modulate = Color( 0.517647, 0, 0, 1 )
@@ -55,29 +55,12 @@ scroll_active = false
 deselect_on_focus_loss_enabled = false
 
 [node name="Decisions" type="HBoxContainer" parent="Interface/MarginContainer/VBoxContainer"]
-margin_left = 80.0
+margin_left = 190.0
 margin_top = 199.0
-margin_right = 300.0
-margin_bottom = 219.0
+margin_right = 190.0
+margin_bottom = 199.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 custom_constants/separation = 45
 script = ExtResource( 1 )
 text_render = NodePath("../TextRender")
-
-[node name="Path1" type="Button" parent="Interface/MarginContainer/VBoxContainer/Decisions"]
-margin_right = 36.0
-margin_bottom = 20.0
-text = "Left"
-
-[node name="Path2" type="Button" parent="Interface/MarginContainer/VBoxContainer/Decisions"]
-margin_left = 81.0
-margin_right = 134.0
-margin_bottom = 20.0
-text = "center"
-
-[node name="Path3" type="Button" parent="Interface/MarginContainer/VBoxContainer/Decisions"]
-margin_left = 179.0
-margin_right = 220.0
-margin_bottom = 20.0
-text = "right"
