@@ -18,13 +18,8 @@ func recreate_buttons() -> void:
 		n.queue_free()
 
 	#look for new page info
-	var current_page
-	for n in StoryJson.Json:
-		if n.name == GameState.current_page_name:
-			current_page = n
-
-	for n in current_page.decisions:
-		var button = Button.new()
+	for n in GameState.current_page.decisions:
+		var button = load("res://Resources/GenericButton.tscn").instance()
 		button.text = n.label
+		button.target_page = n.target_page
 		self.add_child(button)
-	

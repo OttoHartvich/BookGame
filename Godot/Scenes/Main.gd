@@ -8,5 +8,3 @@ func _ready() -> void:
 
 func show() -> void:
 	print("hello i am main");
-
-
