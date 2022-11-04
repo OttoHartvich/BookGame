@@ -1,0 +1,44 @@
+[gd_scene format=2]
+
+[node name="Control" type="Popup"]
+visible = true
+margin_left = 400.0
+margin_top = 200.0
+margin_right = 400.0
+margin_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="TabContainer" type="TabContainer" parent="."]
+margin_right = 8.0
+margin_bottom = 36.0
+grow_horizontal = 0
+grow_vertical = 0
+custom_constants/top_margin = 100
+custom_constants/side_margin = 100
+
+[node name="Video" type="Tabs" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Sound" type="Tabs" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Controls" type="Tabs" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = 20.0

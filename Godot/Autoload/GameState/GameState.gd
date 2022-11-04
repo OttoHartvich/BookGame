@@ -1,7 +1,11 @@
 extends Node
 
 var current_page
-
+var player = {
+	"items":[
+	],
+	"health":3
+}
 func _ready():
 	if current_page == null:
 		change_page("Intro")
