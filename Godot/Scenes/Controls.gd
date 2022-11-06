@@ -6,8 +6,3 @@ func _input(event):
 	if event.is_action_pressed("escape"):
 		if !settings_menu.is_visible_in_tree():
 			settings_menu.popup_centered()
-
-func _process(_delta):
-	print('menu visibility ',settings_menu.is_visible_in_tree())
-	#if !settings_menu.is_visible_in_tree():
-	#	settings_menu.popup_centered()

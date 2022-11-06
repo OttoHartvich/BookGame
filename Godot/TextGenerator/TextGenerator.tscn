@@ -45,6 +45,7 @@ margin_bottom = 204.0
 modulate = Color( 0.517647, 0, 0, 1 )
 margin_right = 380.0
 margin_bottom = 15.0
+bbcode_enabled = true
 meta_underlined = false
 tab_size = 6
 fit_content_height = true
