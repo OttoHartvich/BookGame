@@ -6,4 +6,5 @@ func _ready():
 
 func change_page(_page):
 	self.percent_visible = 0
-	self.text = GameState.current_page.text
+	self.bbcode_text = GameState.current_page.text
+
