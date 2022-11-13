@@ -1,12 +1,14 @@
 extends Node
 
 var current_page
+var next_page
 var player = {
 	"items":[
 	],
 	"health":3
 }
 var turning_page = false
+
 func _ready():
 	if current_page == null:
 		change_page("Intro")
