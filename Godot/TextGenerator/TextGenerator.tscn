@@ -20,7 +20,7 @@ viewport_path = NodePath("BookViewport")
 [node name="Book" type="Node2D"]
 z_as_relative = false
 script = ExtResource( 2 )
-text_render = NodePath("Interface/MarginContainer/VBoxContainer/TextRender")
+text_render = NodePath("Interface/Story/VBoxContainer/TextRender")
 
 [node name="BookViewport" type="Viewport" parent="."]
 size = Vector2( 1920, 1080 )
@@ -91,7 +91,7 @@ rotation = -0.0296706
 z_index = 1
 z_as_relative = false
 
-[node name="MarginContainer" type="MarginContainer" parent="Interface"]
+[node name="Story" type="MarginContainer" parent="Interface"]
 margin_left = 525.0
 margin_top = 279.0
 margin_right = 883.0
@@ -102,13 +102,13 @@ custom_constants/margin_top = 10
 custom_constants/margin_left = 10
 custom_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Interface/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Interface/Story"]
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 348.0
 margin_bottom = 421.0
 
-[node name="TextRender" type="RichTextLabel" parent="Interface/MarginContainer/VBoxContainer"]
+[node name="TextRender" type="RichTextLabel" parent="Interface/Story/VBoxContainer"]
 modulate = Color( 0.517647, 0, 0, 1 )
 margin_right = 338.0
 margin_bottom = 15.0
@@ -120,7 +120,7 @@ scroll_active = false
 deselect_on_focus_loss_enabled = false
 script = ExtResource( 3 )
 
-[node name="Decisions" type="HBoxContainer" parent="Interface/MarginContainer/VBoxContainer"]
+[node name="Decisions" type="HBoxContainer" parent="Interface/Story/VBoxContainer"]
 margin_left = 169.0
 margin_top = 19.0
 margin_right = 169.0
@@ -130,3 +130,23 @@ size_flags_vertical = 0
 custom_constants/separation = 45
 script = ExtResource( 1 )
 text_render = NodePath("../TextRender")
+
+[node name="Inventory" type="MarginContainer" parent="Interface"]
+margin_left = 1027.73
+margin_top = 293.921
+margin_right = 1385.73
+margin_bottom = 724.921
+rect_rotation = 1.56444
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Interface/Inventory"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 348.0
+margin_bottom = 421.0
+
+[node name="Inventory" type="HFlowContainer" parent="Interface/Inventory/VBoxContainer"]
+margin_right = 338.0
