@@ -29,16 +29,29 @@ var Json = [
 							"default": {
 								"tag": "color",
 								"props": "=blue",
+								"class": null,
 							},
 						}
 					},
 					{
 						"id":null,
-						"text": "but then i turned red with anger", 
+						"text": "but then i turned red with anger ", 
 						"states": {
 							"default": {
 								"tag": "color",
 								"props": "=red",
+								"class": null,
+							},
+						}
+					},
+					{
+						"id":null,
+						"text": "item", 
+						"states": {
+							"default": {
+								"tag": "url",
+								"props": "=item_benis",
+								"class": "item"
 							},
 						}
 					},
@@ -66,6 +79,7 @@ var Json = [
 							"default": {
 								"tag": "tornado",
 								"props": " radius=5 freq=2",
+								"class": null,
 							},
 						}
 					},
@@ -76,6 +90,18 @@ var Json = [
 							"default": {
 								"tag": "shake",
 								"props": " rate=5 level=10",
+								"class": null,
+							},
+						}
+					},
+					{
+						"id":null,
+						"text": "item", 
+						"states": {
+							"default": {
+								"tag": "url",
+								"props": "=item_benis",
+								"class": "item",
 							},
 						}
 					},

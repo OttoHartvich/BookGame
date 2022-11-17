@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://TextGenerator/Decisions.gd" type="Script" id=1]
 [ext_resource path="res://TextGenerator/TextGenerator.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Resources/Book.tscn" type="PackedScene" id=5]
 [ext_resource path="res://TextGenerator/Node2D.gd" type="Script" id=6]
 [ext_resource path="res://TextGenerator/BookPage.gd" type="Script" id=7]
+[ext_resource path="res://TextGenerator/RichTextLabel.gd" type="Script" id=8]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("PageViewport")
@@ -148,5 +149,14 @@ margin_top = 10.0
 margin_right = 348.0
 margin_bottom = 421.0
 
-[node name="Inventory" type="HFlowContainer" parent="Interface/Inventory/VBoxContainer"]
+[node name="Inventory_placeholder" type="RichTextLabel" parent="Interface/Inventory/VBoxContainer"]
 margin_right = 338.0
+margin_bottom = 15.0
+meta_underlined = false
+fit_content_height = true
+script = ExtResource( 8 )
+
+[node name="Inventory" type="HFlowContainer" parent="Interface/Inventory/VBoxContainer"]
+margin_top = 19.0
+margin_right = 338.0
+margin_bottom = 19.0
