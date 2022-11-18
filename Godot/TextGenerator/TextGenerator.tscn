@@ -1,49 +1,117 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://TextGenerator/Decisions.gd" type="Script" id=1]
 [ext_resource path="res://TextGenerator/TextGenerator.gd" type="Script" id=2]
 [ext_resource path="res://TextGenerator/TextRender.gd" type="Script" id=3]
+[ext_resource path="res://Resources/BookPage.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Resources/Book.tscn" type="PackedScene" id=5]
+[ext_resource path="res://TextGenerator/Node2D.gd" type="Script" id=6]
+[ext_resource path="res://TextGenerator/BookPage.gd" type="Script" id=7]
+[ext_resource path="res://TextGenerator/RichTextLabel.gd" type="Script" id=8]
 
-[node name="TextGenerator" type="Node2D"]
+[sub_resource type="ViewportTexture" id=1]
+viewport_path = NodePath("PageViewport")
+
+[sub_resource type="ViewportTexture" id=3]
+viewport_path = NodePath("PageBackViewport")
+
+[sub_resource type="ViewportTexture" id=2]
+viewport_path = NodePath("BookViewport")
+
+[node name="Book" type="Node2D"]
+z_as_relative = false
 script = ExtResource( 2 )
-text_render = NodePath("Interface/MarginContainer/VBoxContainer/TextRender")
+text_render = NodePath("Interface/Story/VBoxContainer/TextRender")
 
-[node name="Spatial" type="Spatial" parent="."]
-
-[node name="ViewportContainer" type="ViewportContainer" parent="Spatial"]
-margin_right = 1280.0
-margin_bottom = 720.0
-
-[node name="Viewport" type="Viewport" parent="Spatial/ViewportContainer"]
-size = Vector2( 1280, 720 )
+[node name="BookViewport" type="Viewport" parent="."]
+size = Vector2( 1920, 1080 )
+transparent_bg = true
 handle_input_locally = false
 render_target_update_mode = 3
+physics_object_picking = true
 
-[node name="Camera" type="Camera" parent="Spatial/ViewportContainer/Viewport"]
+[node name="book" parent="BookViewport" instance=ExtResource( 5 )]
+transform = Transform( 1.31134e-07, -3.82137e-15, -1, -1, 4.37114e-08, -1.31134e-07, 4.37114e-08, 1, 1.91069e-15, 0, 0, -0.944225 )
+
+[node name="Camera" type="Camera" parent="BookViewport"]
+transform = Transform( 1, 6.33314e-05, -6.69038e-05, -6.33201e-05, 1, 0.000168443, 6.69145e-05, -0.000168439, 1, 0, 0, 0 )
+current = true
+fov = 28.2
+
+[node name="PageViewport" type="Viewport" parent="."]
+size = Vector2( 1920, 1080 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+physics_object_picking = true
+
+[node name="Camera" type="Camera" parent="PageViewport"]
+transform = Transform( 1, 6.33314e-05, -6.69038e-05, -6.33201e-05, 1, 0.000168443, 6.69145e-05, -0.000168439, 1, 0.705719, 0, 0 )
+current = true
+fov = 28.2
+
+[node name="page" parent="PageViewport" instance=ExtResource( 4 )]
+transform = Transform( 1.31134e-07, -3.82137e-15, -1, -1, 4.37114e-08, -1.31134e-07, 4.37114e-08, 1, 1.91069e-15, 0.705921, 0.000724792, -0.946925 )
+script = ExtResource( 7 )
+
+[node name="PageBackViewport" type="Viewport" parent="."]
+size = Vector2( 1920, 1080 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+physics_object_picking = true
+
+[node name="Camera" type="Camera" parent="PageBackViewport"]
+transform = Transform( 1, 6.33314e-05, -6.69038e-05, -6.33201e-05, 1, 0.000168443, 6.69145e-05, -0.000168439, 1, 1.35235, 0, 0 )
+current = true
+fov = 28.2
+
+[node name="page2" parent="PageBackViewport" instance=ExtResource( 4 )]
+transform = Transform( -2.21482e-07, -0.0227397, 0.999741, -1, 1.31134e-07, -2.18557e-07, -1.2613e-07, -0.999741, -0.0227397, 1.35358, 0.000724792, -0.930096 )
+
+[node name="Page" type="Sprite" parent="."]
+z_index = 1
+z_as_relative = false
+texture = SubResource( 1 )
+centered = false
+script = ExtResource( 6 )
+
+[node name="PageBack" type="Sprite" parent="."]
+z_as_relative = false
+texture = SubResource( 3 )
+centered = false
+
+[node name="Back" type="Sprite" parent="."]
+z_index = -1
+z_as_relative = false
+texture = SubResource( 2 )
+centered = false
 
 [node name="Interface" type="Node2D" parent="."]
-rotation = -0.0593412
+rotation = -0.0296706
 z_index = 1
+z_as_relative = false
 
-[node name="MarginContainer" type="MarginContainer" parent="Interface"]
-margin_left = 116.388
-margin_top = 98.0752
-margin_right = 516.388
-margin_bottom = 313.075
+[node name="Story" type="MarginContainer" parent="Interface"]
+margin_left = 525.0
+margin_top = 279.0
+margin_right = 883.0
+margin_bottom = 710.0
+rect_rotation = 1.56444
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
 custom_constants/margin_left = 10
 custom_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Interface/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Interface/Story"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 390.0
-margin_bottom = 204.0
+margin_right = 348.0
+margin_bottom = 421.0
 
-[node name="TextRender" type="RichTextLabel" parent="Interface/MarginContainer/VBoxContainer"]
+[node name="TextRender" type="RichTextLabel" parent="Interface/Story/VBoxContainer"]
 modulate = Color( 0.517647, 0, 0, 1 )
-margin_right = 380.0
+margin_right = 338.0
 margin_bottom = 15.0
 bbcode_enabled = true
 meta_underlined = false
@@ -53,13 +121,42 @@ scroll_active = false
 deselect_on_focus_loss_enabled = false
 script = ExtResource( 3 )
 
-[node name="Decisions" type="HBoxContainer" parent="Interface/MarginContainer/VBoxContainer"]
-margin_left = 190.0
+[node name="Decisions" type="HBoxContainer" parent="Interface/Story/VBoxContainer"]
+margin_left = 169.0
 margin_top = 19.0
-margin_right = 190.0
+margin_right = 169.0
 margin_bottom = 19.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 custom_constants/separation = 45
 script = ExtResource( 1 )
 text_render = NodePath("../TextRender")
+
+[node name="Inventory" type="MarginContainer" parent="Interface"]
+margin_left = 1027.73
+margin_top = 293.921
+margin_right = 1385.73
+margin_bottom = 724.921
+rect_rotation = 1.56444
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Interface/Inventory"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 348.0
+margin_bottom = 421.0
+
+[node name="Inventory_placeholder" type="RichTextLabel" parent="Interface/Inventory/VBoxContainer"]
+margin_right = 338.0
+margin_bottom = 15.0
+meta_underlined = false
+fit_content_height = true
+script = ExtResource( 8 )
+
+[node name="Inventory" type="HFlowContainer" parent="Interface/Inventory/VBoxContainer"]
+margin_top = 19.0
+margin_right = 338.0
+margin_bottom = 19.0
