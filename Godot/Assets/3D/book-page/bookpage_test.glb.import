@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/bookpage_test.glb-468088efc0d2fb65e4283a194730cd6a.scn"
+path="res://.import/bookpage_test.glb-01f39f8af56394cc9422be0a2c421e29.scn"
 
 [deps]
 
-source_file="res://Assets/3D/bookpage_test.glb"
-dest_files=[ "res://.import/bookpage_test.glb-468088efc0d2fb65e4283a194730cd6a.scn" ]
+source_file="res://Assets/3D/book-page/bookpage_test.glb"
+dest_files=[ "res://.import/bookpage_test.glb-01f39f8af56394cc9422be0a2c421e29.scn" ]
 
 [params]
 

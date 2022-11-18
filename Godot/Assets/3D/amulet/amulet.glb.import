@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/amulet.glb-b826f4874793b7259884a4bae5f6d4fb.scn"
+path="res://.import/amulet.glb-685693e59dd1689378fdcbf3240e3b3c.scn"
 
 [deps]
 
-source_file="res://Assets/3D/amulet.glb"
-dest_files=[ "res://.import/amulet.glb-b826f4874793b7259884a4bae5f6d4fb.scn" ]
+source_file="res://Assets/3D/amulet/amulet.glb"
+dest_files=[ "res://.import/amulet.glb-685693e59dd1689378fdcbf3240e3b3c.scn" ]
 
 [params]
 

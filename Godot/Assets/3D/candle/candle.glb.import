@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/candle.glb-667025b861fb859ac85c70ba3a5ad031.scn"
+path="res://.import/candle.glb-8f489e8bb8f62585e5f78fb7cb81dede.scn"
 
 [deps]
 
-source_file="res://Assets/3D/candle.glb"
-dest_files=[ "res://.import/candle.glb-667025b861fb859ac85c70ba3a5ad031.scn" ]
+source_file="res://Assets/3D/candle/candle.glb"
+dest_files=[ "res://.import/candle.glb-8f489e8bb8f62585e5f78fb7cb81dede.scn" ]
 
 [params]
 
