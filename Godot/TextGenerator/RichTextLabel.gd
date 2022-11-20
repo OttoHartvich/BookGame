@@ -6,7 +6,12 @@ func _ready():
 	GameEvents.connect("use_item", self,"update_bbc_text")
 	
 func update_bbc_text(_item):
-	var text = array_to_string(GameState.player.items)
+	var text_array =[]
+	for item in GameState.player.items:
+		if item == null:
+			pass
+		text_array.append(item.label)
+	var text = array_to_string(text_array)
 	self.bbcode_text = text
 	print(self.bbcode_text)
 

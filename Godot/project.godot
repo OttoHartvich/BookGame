@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 GameEvents="*res://Autoload/GameEvents/GameEvents.tscn"
 StoryJson="*res://Autoload/StoryJson/StoryJson.tscn"
 GameState="*res://Autoload/GameState/GameState.tscn"
+ItemLibrary="*res://Autoload/ContentLibrary/ItemLibrary.tscn"
 
 [display]
 
