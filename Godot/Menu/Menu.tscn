@@ -1,12 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Menu/Menu.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Book.gd" type="Script" id=2]
-[ext_resource path="res://Resources/Book.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/2D/menu_bg.png" type="Texture" id=4]
 [ext_resource path="res://menu_theme.tres" type="Theme" id=5]
 [ext_resource path="res://Assets/Fonts/Island_Moments/IslandMoments-Regular.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://Assets/3D/book/usethis/book.gltf" type="PackedScene" id=7]
 
 [sub_resource type="Gradient" id=2]
 colors = PoolColorArray( 1, 0.397156, 0.0703125, 1, 0, 0, 0, 0 )
@@ -38,14 +35,6 @@ render_target_update_mode = 3
 
 [node name="Camera" type="Camera" parent="BackgroundLevel/ViewportContainer/Viewport"]
 
-[node name="book" parent="BackgroundLevel/ViewportContainer/Viewport" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, -1, -0.707107, 0.707107, 3.09086e-08, 0.707107, 0.707107, -3.09086e-08, 0, 0, -0.722925 )
-visible = false
-script = ExtResource( 2 )
-
-[node name="book2" parent="BackgroundLevel/ViewportContainer/Viewport" instance=ExtResource( 7 )]
-transform = Transform( -4.37114e-08, 0, -1, -0.707107, 0.707107, 3.09086e-08, 0.707107, 0.707107, -3.09086e-08, -0.00244379, 0.00676818, -0.716486 )
-
 [node name="Sprite3D" type="Sprite3D" parent="BackgroundLevel/ViewportContainer/Viewport"]
 transform = Transform( 1.03072, 0, 0, 0, 0.962498, 0, 0, 0, 1, 0, 0, -7.13936 )
 texture = ExtResource( 4 )
@@ -65,20 +54,26 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu"]
+anchor_left = 0.175
+anchor_top = 0.273
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 custom_constants/margin_right = 100
 custom_constants/margin_top = 100
 custom_constants/margin_left = 100
 custom_constants/margin_bottom = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer"]
-margin_left = 822.0
-margin_top = 438.0
-margin_right = 1098.0
-margin_bottom = 642.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
+margin_left = 100.0
+margin_top = 100.0
+margin_right = 376.0
+margin_bottom = 304.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="Title" type="Label" parent="Menu/MarginContainer/VBoxContainer"]
 margin_right = 276.0

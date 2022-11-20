@@ -82,7 +82,7 @@ var Json = [
 		"text": [
 					{
 						"id":null,
-						"text": "I started feeling strange effects,", 
+						"text": "[color=white][color=blue]I started [/color][/color]feeling strange effects,", 
 						"states": {
 							"default": {
 								"tag": "tornado",
