@@ -4,6 +4,10 @@ var current_page
 var next_page
 var player = {
 	"items":[
+		#{
+		#	"id": string
+		#	"label": string
+		#}
 	],
 	"health":3
 }
@@ -22,7 +26,16 @@ func change_page(new_page):
 			current_page = n
 
 func pick_up_item_to_inventory(item):
-	player.items.append(item)
+	var item_object = find_item_in_library(item)
+	player.items.append(item_object)
 
 func use_item_from_inventory(item):
-	player.items.erase(item)
+	var i = 0
+	while i < player.items.size():
+		if player.items[i].id  == item:
+			player.items.remove(i)
+	
+func find_item_in_library(item):
+	for i in ItemLibrary.library:
+		if i.id == item:
+			return i

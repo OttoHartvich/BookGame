@@ -14,7 +14,6 @@ func _process(_delta):
 	pass
 	
 func delete_buttons(_page):
-	print(_page)
 	for n in self.get_children():
 		self.remove_child(n)
 		n.queue_free()
