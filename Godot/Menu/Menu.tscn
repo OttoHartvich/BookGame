@@ -1,9 +1,25 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Menu/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Book.gd" type="Script" id=2]
 [ext_resource path="res://Resources/Book.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/2D/Export2.jpg" type="Texture" id=4]
+[ext_resource path="res://Assets/2D/menu_bg.png" type="Texture" id=4]
+[ext_resource path="res://menu_theme.tres" type="Theme" id=5]
+[ext_resource path="res://Assets/Fonts/Island_Moments/IslandMoments-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Assets/3D/book/usethis/book.gltf" type="PackedScene" id=7]
+
+[sub_resource type="Gradient" id=2]
+colors = PoolColorArray( 1, 0.397156, 0.0703125, 1, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture2D" id=3]
+gradient = SubResource( 2 )
+fill = 1
+fill_from = Vector2( 0.5, 0.520833 )
+fill_to = Vector2( 0.825, 0.2 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 72
+font_data = ExtResource( 6 )
 
 [node name="Menu" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -24,11 +40,25 @@ render_target_update_mode = 3
 
 [node name="book" parent="BackgroundLevel/ViewportContainer/Viewport" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, -1, -0.707107, 0.707107, 3.09086e-08, 0.707107, 0.707107, -3.09086e-08, 0, 0, -0.722925 )
+visible = false
 script = ExtResource( 2 )
 
+[node name="book2" parent="BackgroundLevel/ViewportContainer/Viewport" instance=ExtResource( 7 )]
+transform = Transform( -4.37114e-08, 0, -1, -0.707107, 0.707107, 3.09086e-08, 0.707107, 0.707107, -3.09086e-08, -0.00244379, 0.00676818, -0.716486 )
+
 [node name="Sprite3D" type="Sprite3D" parent="BackgroundLevel/ViewportContainer/Viewport"]
-transform = Transform( 1, 0, 0, 0, 1.1661, 0, 0, 0, 1, 0, 0, -7.13936 )
+transform = Transform( 1.03072, 0, 0, 0, 0.962498, 0, 0, 0, 1, 0, 0, -7.13936 )
 texture = ExtResource( 4 )
+
+[node name="light-flicker" type="Sprite3D" parent="BackgroundLevel/ViewportContainer/Viewport"]
+transform = Transform( 8.05021, 0, 0, 0, 8.05021, 0, 0, 0, 1.00506, 3.09465, 0.149689, -6.9909 )
+texture = SubResource( 3 )
+
+[node name="OmniLight" type="OmniLight" parent="BackgroundLevel/ViewportContainer/Viewport"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.124259, 0.242751, -0.543695 )
+light_color = Color( 0.972549, 0.533333, 0.0666667, 1 )
+light_energy = 6.287
+omni_range = 0.428
 
 [node name="Menu" type="Control" parent="."]
 anchor_right = 1.0
@@ -43,46 +73,55 @@ custom_constants/margin_left = 100
 custom_constants/margin_bottom = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer"]
-margin_left = 921.0
-margin_top = 484.0
-margin_right = 998.0
-margin_bottom = 595.0
+margin_left = 822.0
+margin_top = 438.0
+margin_right = 1098.0
+margin_bottom = 642.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Title" type="Label" parent="Menu/MarginContainer/VBoxContainer"]
-margin_right = 77.0
-margin_bottom = 14.0
+margin_right = 276.0
+margin_bottom = 83.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
+theme = ExtResource( 5 )
+custom_colors/font_color = Color( 0.505882, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
 text = "Crimson Ink"
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu/MarginContainer/VBoxContainer"]
-margin_top = 18.0
-margin_right = 77.0
-margin_bottom = 39.0
+margin_top = 87.0
+margin_right = 276.0
+margin_bottom = 108.0
 custom_constants/margin_top = 21
 
 [node name="StartBtn" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
-margin_top = 43.0
-margin_right = 77.0
-margin_bottom = 63.0
+margin_top = 112.0
+margin_right = 276.0
+margin_bottom = 140.0
 size_flags_vertical = 0
+theme = ExtResource( 5 )
 text = "Start"
+align = 0
 
 [node name="SettingsBtn" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
-margin_top = 67.0
-margin_right = 77.0
-margin_bottom = 87.0
+margin_top = 144.0
+margin_right = 276.0
+margin_bottom = 172.0
 size_flags_vertical = 0
+theme = ExtResource( 5 )
 text = "Settings"
+align = 0
 
 [node name="QuitBtn" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
-margin_top = 91.0
-margin_right = 77.0
-margin_bottom = 111.0
+margin_top = 176.0
+margin_right = 276.0
+margin_bottom = 204.0
 size_flags_vertical = 0
+theme = ExtResource( 5 )
 text = "Quit"
+align = 0
 
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_StartBtn_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/QuitBtn" to="." method="_on_QuitBtn_pressed"]
