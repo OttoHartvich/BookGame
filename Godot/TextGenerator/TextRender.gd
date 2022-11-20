@@ -1,7 +1,5 @@
 extends RichTextLabel
 
-var page_state =[]
-
 func _ready():
 	change_page("")
 	GameEvents.connect("change_page", self,"change_page")
@@ -10,7 +8,6 @@ func _ready():
 func change_page(_page):
 	self.percent_visible = 0
 	update_text()
-	page_state = []
 
 func parse_text(text_json_array):
 	var text = ""
@@ -18,7 +15,11 @@ func parse_text(text_json_array):
 		var start_tag = ""
 		var end_tag = ""
 		if snippet.states:
-			if page_state != [] and page_state.find(snippet.id) != -1:
+			var matching_state = null
+			for s in GameState.player.items:
+				if snippet.id != null and snippet.id == s.id:
+					matching_state = s.id
+			if GameState.player.items != [] and matching_state != null:
 				start_tag = "[" + snippet.states.inactive.tag.strip_edges(true,true) + snippet.states.inactive.props + "]"
 				end_tag = "[/" + snippet.states.inactive.tag + "]"
 				print(start_tag,end_tag)
@@ -37,7 +38,6 @@ func handle_click(action):
 	var parsed_action = action.split("_")
 	if parsed_action[0] == "item":
 		GameEvents.emit_signal("pick_up_item",parsed_action[1])
-		page_state.append(parsed_action[1])
 	update_text()
 
 func update_text():
