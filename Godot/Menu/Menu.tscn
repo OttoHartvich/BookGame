@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/2D/menu_bg.png" type="Texture" id=4]
 [ext_resource path="res://menu_theme.tres" type="Theme" id=5]
 [ext_resource path="res://Assets/Fonts/Island_Moments/IslandMoments-Regular.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://Assets/3D/book/usethis/book.gltf" type="PackedScene" id=7]
+[ext_resource path="res://Assets/3D/book/book.gltf" type="PackedScene" id=7]
 
 [sub_resource type="Gradient" id=2]
 colors = PoolColorArray( 1, 0.397156, 0.0703125, 1, 0, 0, 0, 0 )
@@ -45,6 +45,7 @@ script = ExtResource( 2 )
 
 [node name="book2" parent="BackgroundLevel/ViewportContainer/Viewport" instance=ExtResource( 7 )]
 transform = Transform( -4.37114e-08, 0, -1, -0.707107, 0.707107, 3.09086e-08, 0.707107, 0.707107, -3.09086e-08, -0.00244379, 0.00676818, -0.716486 )
+visible = false
 
 [node name="Sprite3D" type="Sprite3D" parent="BackgroundLevel/ViewportContainer/Viewport"]
 transform = Transform( 1.03072, 0, 0, 0, 0.962498, 0, 0, 0, 1, 0, 0, -7.13936 )
