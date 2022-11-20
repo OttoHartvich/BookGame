@@ -16,7 +16,6 @@ func _physics_process(_delta):
 			is_mouse_pressed = true
 		var active_mouse_coor = get_viewport().get_mouse_position()
 		book.global_position = book_coor_when_pressed + (active_mouse_coor - mouse_coor_when_pressed)
-		print(active_mouse_coor,mouse_coor_when_pressed)
 	else: 
 		is_mouse_pressed = false
 		book_coor_when_pressed = false
