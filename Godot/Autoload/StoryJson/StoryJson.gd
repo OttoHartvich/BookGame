@@ -20,13 +20,14 @@ extends Node
 #]
 
 # text chunk ID has to match ITEM ID and has to match the URL TAG  ITEM_ID props tag
+
 var Json = [
 	{
 		"name":"Intro", 
 		"text": [
 					{
 						"id": null,
-						"text": "In the beggining I was blue,", 
+						"text": "In the beggining I was blue,",
 						"states": {
 							"default": {
 								"tag": "color",
@@ -36,8 +37,8 @@ var Json = [
 						}
 					},
 					{
-						"id":null,
-						"text": "but then i turned red with anger ", 
+						"id": null,
+						"text": "but then i turned red with anger ",
 						"states": {
 							"default": {
 								"tag": "color",
@@ -107,7 +108,7 @@ var Json = [
 						"states": {
 							"default": {
 								"tag": "url",
-								"props": "=item_item2",
+								"props": "=item_item2", # 1. ID MUSI BYT UNIKATNI 2. MUSI BYT SPRAVNE FORMAT PROPS
 								"class": "item",
 							},
 							"inactive":{
