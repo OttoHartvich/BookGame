@@ -22,7 +22,6 @@ func parse_text(text_json_array):
 			if GameState.player.items != [] and matching_state != null:
 				start_tag = "[" + snippet.states.inactive.tag.strip_edges(true,true) + snippet.states.inactive.props + "]"
 				end_tag = "[/" + snippet.states.inactive.tag + "]"
-				print(start_tag,end_tag)
 			else: 
 				start_tag = "[" + snippet.states.default.tag.strip_edges(true,true) + snippet.states.default.props + "]"
 				end_tag = "[/" + snippet.states.default.tag + "]"
