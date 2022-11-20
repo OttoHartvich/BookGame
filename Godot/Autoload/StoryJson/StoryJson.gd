@@ -74,7 +74,22 @@ var Json = [
 			"target_page":"FirstRoom",
 			"label":'To the first Room!',
 			"prerequisit": null,
-			}
+			},
+			{
+			"target_page":"FirstRoom",
+			"label":'To the first Room!',
+			"prerequisit": null,
+			},
+			{
+			"target_page":"FirstRoom",
+			"label":'To the first Room!',
+			"prerequisit": null,
+			},
+			{
+			"target_page":"FirstRoom",
+			"label":'To the first Room!',
+			"prerequisit": null,
+			},
 		]
 	},
 	{

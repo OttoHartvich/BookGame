@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Fonts/Gentium_Book_Basic/GentiumBookBasic-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/2D/elements/button_line.svg" type="Texture" id=2]
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 431, 117 )
+margin_top = 20.0
+margin_bottom = 20.0
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 1 )
+
+[resource]
+default_font = SubResource( 1 )
+Button/styles/normal = SubResource( 2 )

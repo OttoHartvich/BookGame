@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hold.png-5cf9b52daead8fe1437a6309bcf14d71.stex"
+path="res://.import/button_line.png-3e3afed10e01d0178d2b78e6010c5ea5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/2D/hold.png"
-dest_files=[ "res://.import/hold.png-5cf9b52daead8fe1437a6309bcf14d71.stex" ]
+source_file="res://Assets/2D/elements/button_line.png"
+dest_files=[ "res://.import/button_line.png-3e3afed10e01d0178d2b78e6010c5ea5.stex" ]
 
 [params]
 

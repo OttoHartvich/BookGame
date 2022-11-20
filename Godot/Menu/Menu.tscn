@@ -80,6 +80,7 @@ margin_right = 1098.0
 margin_bottom = 642.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource( 5 )
 
 [node name="Title" type="Label" parent="Menu/MarginContainer/VBoxContainer"]
 margin_right = 276.0
@@ -102,7 +103,6 @@ margin_top = 112.0
 margin_right = 276.0
 margin_bottom = 140.0
 size_flags_vertical = 0
-theme = ExtResource( 5 )
 text = "Start"
 align = 0
 
@@ -111,7 +111,6 @@ margin_top = 144.0
 margin_right = 276.0
 margin_bottom = 172.0
 size_flags_vertical = 0
-theme = ExtResource( 5 )
 text = "Settings"
 align = 0
 
@@ -120,7 +119,6 @@ margin_top = 176.0
 margin_right = 276.0
 margin_bottom = 204.0
 size_flags_vertical = 0
-theme = ExtResource( 5 )
 text = "Quit"
 align = 0
 
