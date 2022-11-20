@@ -13,7 +13,6 @@ func update_bbc_text(_item):
 		text_array.append(item.label)
 	var text = array_to_string(text_array)
 	self.bbcode_text = text
-	print(self.bbcode_text)
 
 func array_to_string(arr: Array) -> String:
 	var s = ""

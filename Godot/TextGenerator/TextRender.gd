@@ -18,9 +18,10 @@ func parse_text(text_json_array):
 		var start_tag = ""
 		var end_tag = ""
 		if snippet.states:
-			if page_state.find(snippet.id):
-				start_tag = "[" + snippet.states.inactive.tag.strip_edges(true,true) + snippet.states.default.props + "]"
+			if page_state != [] and page_state.find(snippet.id) != -1:
+				start_tag = "[" + snippet.states.inactive.tag.strip_edges(true,true) + snippet.states.inactive.props + "]"
 				end_tag = "[/" + snippet.states.inactive.tag + "]"
+				print(start_tag,end_tag)
 			else: 
 				start_tag = "[" + snippet.states.default.tag.strip_edges(true,true) + snippet.states.default.props + "]"
 				end_tag = "[/" + snippet.states.default.tag + "]"
