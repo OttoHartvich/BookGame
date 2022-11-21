@@ -1,27 +1,33 @@
-extends VBoxContainer
+extends GridContainer
 
 export(NodePath) onready var text_render = get_node(text_render) as RichTextLabel
+func _init():
+	if self.get_child_count() == 0:
+		recreate_buttons("")
 
 func _ready():
-	GameEvents.connect("turn_page", self,"delete_buttons")
+	GameEvents.connect("turn_page", self,"disable_buttons")
+	GameEvents.connect("change_page", self,"recreate_buttons")
 
 func _process(_delta):
-	if text_render.percent_visible == 1 and !self.is_visible_in_tree(): 
-		self.show()
-		recreate_buttons()
-	if text_render.percent_visible != 1 and self.is_visible_in_tree(): 
-		self.hide()
+	if text_render.percent_visible == 1 and self.modulate.a == 0: 
+		self.modulate.a = 1
+	if text_render.percent_visible != 1 and self.modulate.a == 1:
+		self.modulate.a = 0
 	pass
-	
+
 func delete_buttons(_page):
 	for n in self.get_children():
 		self.remove_child(n)
 		n.queue_free()
-	
-func recreate_buttons() -> void:
-	delete_buttons("")
+		
+func disable_buttons(_page):
+	for n in self.get_children():
+		n.disabled = true
 
+func recreate_buttons(_page) -> void:
 	#look for new page info
+	delete_buttons("")
 	for n in GameState.current_page.decisions:
 		var button = load("res://Resources/GenericButton.tscn").instance()
 		button.text = n.label

@@ -22,7 +22,7 @@ viewport_path = NodePath("BookViewport")
 [node name="Book" type="Node2D"]
 z_as_relative = false
 script = ExtResource( 2 )
-text_render = NodePath("Interface/Story/VBoxContainer/TextRender")
+text_render = NodePath("Interface/Story/VFlowContainer/TextRender")
 
 [node name="BookViewport" type="Viewport" parent="."]
 size = Vector2( 1920, 1080 )
@@ -105,14 +105,17 @@ custom_constants/margin_top = 0
 custom_constants/margin_left = 0
 custom_constants/margin_bottom = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Interface/Story"]
+[node name="VFlowContainer" type="VBoxContainer" parent="Interface/Story"]
 margin_right = 358.0
 margin_bottom = 551.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 1
 
-[node name="TextRender" type="RichTextLabel" parent="Interface/Story/VBoxContainer"]
+[node name="TextRender" type="RichTextLabel" parent="Interface/Story/VFlowContainer"]
 modulate = Color( 0.517647, 0, 0, 1 )
 margin_right = 358.0
-margin_bottom = 547.0
+margin_bottom = 543.0
 size_flags_vertical = 3
 bbcode_enabled = true
 meta_underlined = false
@@ -122,12 +125,17 @@ scroll_active = false
 deselect_on_focus_loss_enabled = false
 script = ExtResource( 3 )
 
-[node name="Decisions" type="VBoxContainer" parent="Interface/Story/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Interface/Story/VFlowContainer"]
+margin_top = 547.0
+margin_right = 358.0
+margin_bottom = 547.0
+
+[node name="Decisions" type="GridContainer" parent="Interface/Story/VFlowContainer"]
 margin_top = 551.0
 margin_right = 358.0
 margin_bottom = 551.0
 size_flags_vertical = 0
-alignment = 2
+columns = 2
 script = ExtResource( 1 )
 text_render = NodePath("../TextRender")
 
