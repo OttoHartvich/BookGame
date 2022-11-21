@@ -12,9 +12,9 @@ func _ready():
 func _process(_delta):
 	if text_render.percent_visible == 1 and self.modulate.a == 0: 
 		self.modulate.a = 1
+		enable_buttons("")
 	if text_render.percent_visible != 1 and self.modulate.a == 1:
 		self.modulate.a = 0
-	pass
 
 func delete_buttons(_page):
 	for n in self.get_children():
@@ -25,6 +25,10 @@ func disable_buttons(_page):
 	for n in self.get_children():
 		n.disabled = true
 
+func enable_buttons(_page):
+	for n in self.get_children():
+		n.disabled = false
+
 func recreate_buttons(_page) -> void:
 	#look for new page info
 	delete_buttons("")
@@ -33,4 +37,5 @@ func recreate_buttons(_page) -> void:
 		button.text = n.label
 		button.target_page = n.target_page
 		self.add_child(button)
+	disable_buttons("")
 
