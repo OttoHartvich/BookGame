@@ -1,4 +1,4 @@
-extends HBoxContainer
+extends VBoxContainer
 
 export(NodePath) onready var text_render = get_node(text_render) as RichTextLabel
 

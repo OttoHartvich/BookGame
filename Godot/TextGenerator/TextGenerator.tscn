@@ -97,19 +97,23 @@ z_as_relative = false
 margin_left = 525.0
 margin_top = 279.0
 margin_right = 883.0
-margin_bottom = 710.0
+margin_bottom = 830.0
 rect_rotation = 1.56444
 theme = ExtResource( 9 )
+custom_constants/margin_right = 0
+custom_constants/margin_top = 0
+custom_constants/margin_left = 0
+custom_constants/margin_bottom = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Interface/Story"]
 margin_right = 358.0
-margin_bottom = 431.0
-custom_constants/separation = 400
+margin_bottom = 551.0
 
 [node name="TextRender" type="RichTextLabel" parent="Interface/Story/VBoxContainer"]
 modulate = Color( 0.517647, 0, 0, 1 )
 margin_right = 358.0
-margin_bottom = 25.0
+margin_bottom = 547.0
+size_flags_vertical = 3
 bbcode_enabled = true
 meta_underlined = false
 tab_size = 8
@@ -118,14 +122,12 @@ scroll_active = false
 deselect_on_focus_loss_enabled = false
 script = ExtResource( 3 )
 
-[node name="Decisions" type="HBoxContainer" parent="Interface/Story/VBoxContainer"]
-margin_left = 179.0
-margin_top = 425.0
-margin_right = 179.0
-margin_bottom = 425.0
-size_flags_horizontal = 4
+[node name="Decisions" type="VBoxContainer" parent="Interface/Story/VBoxContainer"]
+margin_top = 551.0
+margin_right = 358.0
+margin_bottom = 551.0
 size_flags_vertical = 0
-custom_constants/separation = 45
+alignment = 2
 script = ExtResource( 1 )
 text_render = NodePath("../TextRender")
 

@@ -27,7 +27,7 @@ var Json = [
 		"text": [
 					{
 						"id": null,
-						"text": "In the beggining I was blue,",
+						"text": "In the beggining I was blue, Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam at arcu a est sollicitudin euismod.",
 						"states": {
 							"default": {
 								"tag": "color",
@@ -65,16 +65,6 @@ var Json = [
 					},
 				],
 		"decisions": [
-			{
-			"target_page":"FirstRoom",
-			"label":'To the first Room!',
-			"prerequisit": null,
-			},
-			{
-			"target_page":"FirstRoom",
-			"label":'To the first Room!',
-			"prerequisit": null,
-			},
 			{
 			"target_page":"FirstRoom",
 			"label":'To the first Room!',

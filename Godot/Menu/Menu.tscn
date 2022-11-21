@@ -65,24 +65,16 @@ omni_range = 0.428
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="MarginContainer" type="MarginContainer" parent="Menu"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/margin_right = 100
-custom_constants/margin_top = 100
-custom_constants/margin_left = 100
-custom_constants/margin_bottom = 100
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer"]
-margin_left = 822.0
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+margin_left = 380.0
 margin_top = 438.0
-margin_right = 1098.0
+margin_right = 225.0
 margin_bottom = 642.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource( 5 )
 
-[node name="Title" type="Label" parent="Menu/MarginContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="Menu/VBoxContainer"]
 margin_right = 276.0
 margin_bottom = 83.0
 size_flags_horizontal = 4
@@ -92,13 +84,13 @@ custom_colors/font_color = Color( 0.505882, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Crimson Ink"
 
-[node name="MarginContainer" type="MarginContainer" parent="Menu/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Menu/VBoxContainer"]
 margin_top = 87.0
 margin_right = 276.0
 margin_bottom = 108.0
 custom_constants/margin_top = 21
 
-[node name="StartBtn" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+[node name="StartBtn" type="Button" parent="Menu/VBoxContainer"]
 margin_top = 112.0
 margin_right = 276.0
 margin_bottom = 140.0
@@ -106,7 +98,7 @@ size_flags_vertical = 0
 text = "Start"
 align = 0
 
-[node name="SettingsBtn" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+[node name="SettingsBtn" type="Button" parent="Menu/VBoxContainer"]
 margin_top = 144.0
 margin_right = 276.0
 margin_bottom = 172.0
@@ -114,7 +106,7 @@ size_flags_vertical = 0
 text = "Settings"
 align = 0
 
-[node name="QuitBtn" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+[node name="QuitBtn" type="Button" parent="Menu/VBoxContainer"]
 margin_top = 176.0
 margin_right = 276.0
 margin_bottom = 204.0
@@ -122,5 +114,10 @@ size_flags_vertical = 0
 text = "Quit"
 align = 0
 
-[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_StartBtn_pressed"]
-[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/QuitBtn" to="." method="_on_QuitBtn_pressed"]
+[node name="MarginContainer" type="MarginContainer" parent="Menu"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[connection signal="pressed" from="Menu/VBoxContainer/StartBtn" to="." method="_on_StartBtn_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/QuitBtn" to="." method="_on_QuitBtn_pressed"]
