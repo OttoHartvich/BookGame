@@ -21,9 +21,8 @@ func _ready():
 	GameEvents.connect("use_item", self,"use_item_from_inventory")
 
 func change_page(new_page):
-	for n in StoryJson.Json:
-		if n.name == new_page:
-			current_page = n
+	var json = StoryJson.load_json(new_page)
+	current_page = json
 
 func pick_up_item_to_inventory(item):
 	var item_object = find_item_in_library(item)

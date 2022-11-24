@@ -7,6 +7,7 @@
 [ext_resource path="res://Assets/2D/menu_bg.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/BookManager.gd" type="Script" id=6]
 
+
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.709497 )
 colors = PoolColorArray( 1, 0.494118, 0, 1, 0, 0, 0, 1 )
