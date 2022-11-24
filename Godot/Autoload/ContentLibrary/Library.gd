@@ -1,6 +1,6 @@
 extends Node
 
-var library = [
+var item_library = [
 	{
 		"id":"item",
 		"label":"item"
@@ -9,4 +9,9 @@ var library = [
 		"id":"item2",
 		"label":"item2"
 	}
+]
+
+var game_endings = [
+	"Death",
+	"Ending"
 ]

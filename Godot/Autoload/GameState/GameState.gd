@@ -19,6 +19,7 @@ func _ready():
 	GameEvents.connect("change_page", self,"change_page")
 	GameEvents.connect("pick_up_item", self,"pick_up_item_to_inventory")
 	GameEvents.connect("use_item", self,"use_item_from_inventory")
+	GameEvents.connect("game_end", self,"switch_to_end_screen")
 
 func change_page(new_page):
 	var json = StoryJson.load_json(new_page)
@@ -35,6 +36,9 @@ func use_item_from_inventory(item):
 			player.items.remove(i)
 	
 func find_item_in_library(item):
-	for i in ItemLibrary.library:
+	for i in Library.item_library:
 		if i.id == item:
 			return i
+
+func switch_to_end_screen(reason):
+	get_tree().change_scene("res://Scenes/" + reason + ".tscn")

@@ -47,13 +47,13 @@
         "prerequisit": null
         },
         {
-        "target_page":"FirstRoom",
-        "label":"To the first Room!",
+        "target_page":"Ending",
+        "label":"Rescue the princess!",
         "prerequisit": null
         },
         {
-        "target_page":"FirstRoom",
-        "label":"To the first Room!",
+        "target_page":"Death",
+        "label":"Jump into the spikepit",
         "prerequisit": null
         }
     ]

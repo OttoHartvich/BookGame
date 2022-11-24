@@ -6,3 +6,4 @@ signal turn_page(page);
 signal change_page(page);
 signal pick_up_item(item);
 signal use_item(item);
+signal game_end(reason);

@@ -1,0 +1,10 @@
+[gd_scene format=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = 536.0
+margin_top = 522.0
+margin_right = 1225.0
+margin_bottom = 562.0
+text = "You died"
