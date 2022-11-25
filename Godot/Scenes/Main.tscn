@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://TextGenerator/TextGenerator.tscn" type="PackedScene" id=2]
@@ -6,7 +6,7 @@
 [ext_resource path="res://Scenes/Controls.gd" type="Script" id=4]
 [ext_resource path="res://Assets/2D/menu_bg.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/BookManager.gd" type="Script" id=6]
-
+[ext_resource path="res://Scenes/Enviroment.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.709497 )
@@ -25,23 +25,23 @@ script = ExtResource( 6 )
 
 [node name="Book" parent="BookManager" instance=ExtResource( 2 )]
 
-[node name="Controls" type="Node" parent="."]
+[node name="Controls" type="Node" parent="BookManager"]
 script = ExtResource( 4 )
 settings_menu = NodePath("../Menu/SettingsMenu")
 
-[node name="Menu" type="Node2D" parent="."]
+[node name="Menu" type="Node2D" parent="BookManager"]
 z_index = 2
 
-[node name="SettingsMenu" parent="Menu" instance=ExtResource( 3 )]
+[node name="SettingsMenu" parent="BookManager/Menu" instance=ExtResource( 3 )]
 margin_left = 0.0
 margin_top = 0.0
 margin_right = 0.0
 margin_bottom = 0.0
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Node2D" type="Node2D" parent="BookManager"]
 z_index = -4
 
-[node name="TextureRect" type="TextureRect" parent="Node2D"]
+[node name="TextureRect" type="TextureRect" parent="BookManager/Node2D"]
 margin_right = 40.0
 margin_bottom = 40.0
 rect_scale = Vector2( 0.998561, 1 )
@@ -51,8 +51,11 @@ texture = ExtResource( 5 )
 expand = true
 stretch_mode = 3
 
-[node name="Light2D" type="Light2D" parent="."]
+[node name="Light2D" type="Light2D" parent="BookManager"]
 position = Vector2( 1437, 339 )
 scale = Vector2( 31.0977, 26.4668 )
 texture = SubResource( 2 )
 energy = 1.71
+
+[node name="Enviroment" parent="." instance=ExtResource( 7 )]
+transform = Transform( -4.37114e-08, 4.37114e-08, 1, 1, 1.91069e-15, 4.37114e-08, 0, 1, -4.37114e-08, 1.36244, -0.0718298, -2.01841 )
