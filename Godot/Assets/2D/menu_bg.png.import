@@ -18,7 +18,7 @@ dest_files=[ "res://.import/menu_bg.png-8ac19d8f5d7bb09dac842ce2b51e599a.s3tc.st
 
 compress/mode=2
 compress/lossy_quality=0.7
-compress/hdr_mode=0
+compress/hdr_mode=1
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Menu/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Book.gd" type="Script" id=2]
@@ -8,14 +8,13 @@
 [ext_resource path="res://Assets/Fonts/Island_Moments/IslandMoments-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Assets/3D/book/book.gltf" type="PackedScene" id=7]
 
-[sub_resource type="Gradient" id=2]
-colors = PoolColorArray( 1, 0.397156, 0.0703125, 1, 0, 0, 0, 0 )
-
-[sub_resource type="GradientTexture2D" id=3]
-gradient = SubResource( 2 )
-fill = 1
-fill_from = Vector2( 0.5, 0.520833 )
-fill_to = Vector2( 0.825, 0.2 )
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="DynamicFont" id=1]
 size = 72
@@ -25,8 +24,10 @@ font_data = ExtResource( 6 )
 script = ExtResource( 1 )
 
 [node name="BackgroundLevel" type="Spatial" parent="."]
+visible = false
 
 [node name="ViewportContainer" type="ViewportContainer" parent="BackgroundLevel"]
+visible = false
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -34,7 +35,7 @@ __meta__ = {
 [node name="Viewport" type="Viewport" parent="BackgroundLevel/ViewportContainer"]
 size = Vector2( 1920, 1080 )
 handle_input_locally = false
-render_target_update_mode = 3
+render_target_update_mode = 0
 
 [node name="Camera" type="Camera" parent="BackgroundLevel/ViewportContainer/Viewport"]
 
@@ -51,15 +52,15 @@ visible = false
 transform = Transform( 1.03072, 0, 0, 0, 0.962498, 0, 0, 0, 1, 0, 0, -7.13936 )
 texture = ExtResource( 4 )
 
-[node name="light-flicker" type="Sprite3D" parent="BackgroundLevel/ViewportContainer/Viewport"]
-transform = Transform( 8.05021, 0, 0, 0, 8.05021, 0, 0, 0, 1.00506, 3.09465, 0.149689, -6.9909 )
-texture = SubResource( 3 )
+[node name="Menu_2Dbackground" type="Node2D" parent="."]
 
-[node name="OmniLight" type="OmniLight" parent="BackgroundLevel/ViewportContainer/Viewport"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.124259, 0.242751, -0.543695 )
-light_color = Color( 0.972549, 0.533333, 0.0666667, 1 )
-light_energy = 6.287
-omni_range = 0.428
+[node name="TextureRect" type="TextureRect" parent="Menu_2Dbackground"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Menu_2Dbackground"]
+frames = SubResource( 2 )
 
 [node name="Menu" type="Control" parent="."]
 anchor_right = 1.0
@@ -68,7 +69,7 @@ anchor_bottom = 1.0
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
 margin_left = 380.0
 margin_top = 438.0
-margin_right = 225.0
+margin_right = 656.0
 margin_bottom = 642.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
