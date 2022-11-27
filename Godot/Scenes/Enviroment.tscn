@@ -1,9 +1,13 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Resources/table.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/floor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Resources/candle.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Resources/candle_holder.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Resources/dagger.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Resources/ink.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Resources/quill.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Resources/amulet.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
@@ -15,7 +19,6 @@ fog_color = Color( 0.243137, 0.294118, 0.34902, 1 )
 fog_height_min = -16.3
 fog_height_max = -5.0
 fog_height_curve = 0.203063
-dof_blur_far_enabled = true
 dof_blur_far_distance = 1.59
 dof_blur_far_transition = 4.47
 dof_blur_far_amount = 0.08
@@ -84,10 +87,10 @@ material = SubResource( 4 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.887909, 0 )
 
 [node name="candle" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 0.99988, -0.0155154, 0, 0.0155154, 0.99988, -0.105094, 0.933092, -0.257245 )
+transform = Transform( 1, 0, 0, 0, 0.99988, -0.0155154, 0, 0.0155154, 0.99988, -0.0113018, 0.933092, -0.257245 )
 
 [node name="candle_holder" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 0.99988, -0.0155154, 0, 0.0155154, 0.99988, -0.105094, 0.911053, -0.257587 )
+transform = Transform( 1, 0, 0, 0, 0.99988, -0.0155154, 0, 0.0155154, 0.99988, -0.0113018, 0.911053, -0.257587 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
@@ -107,7 +110,7 @@ light_energy = 0.418
 transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0 )
 
 [node name="Flame" type="Particles" parent="."]
-transform = Transform( 0.255976, 0, 0, 0, 0.255976, 0, 0, 0, 0.255976, -0.105469, 0.960933, -0.257573 )
+transform = Transform( 0.255976, 0, 0, 0, 0.255976, 0, 0, 0, 0.255976, -0.0116768, 0.960933, -0.257573 )
 amount = 100
 lifetime = 0.5
 randomness = 1.0
@@ -121,3 +124,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03263, -0.0731922 )
 light_energy = 0.185
 light_negative = true
 omni_range = 12.9104
+
+[node name="dagger" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.854124, 0.502146, 0.135355, -0.482557, 0.862259, -0.153781, -0.193931, 0.0660316, 0.97879, 0.064887, 0.996723, 0.310955 )
+
+[node name="ink" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.78031, 0, -0.625392, 0, 1, 0, 0.625392, 0, 0.78031, 0.114168, 0.910314, -0.210955 )
+
+[node name="quill" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.754961, -0.164433, -0.634819, 0.215772, 0.976436, 0.00368819, 0.619254, -0.139761, 0.772652, 0.0974398, 1.00286, -0.221407 )
+
+[node name="amulet" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.675196, 0.287448, -0.682711, 0, 0.923761, 0.38894, 0.740757, -0.262007, 0.622287, -0.0433445, 0.912869, 0.337756 )

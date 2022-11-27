@@ -88,9 +88,9 @@ render_target_update_mode = 3
 physics_object_picking = true
 
 [node name="Camera" type="Camera" parent="PageBackViewport"]
-transform = Transform( 1, 6.33314e-05, -6.69038e-05, -6.33201e-05, 1, 0.000168443, 6.69145e-05, -0.000168439, 1, -5.44367, -0.410326, 0 )
+transform = Transform( 1, 6.33314e-05, -6.69038e-05, -6.33201e-05, 1, 0.000168443, 6.69145e-05, -0.000168439, 1, -5.34412, -0.481681, -0.368951 )
 current = true
-fov = 28.2
+fov = 30.6
 
 [node name="Enviroment" parent="PageBackViewport" instance=ExtResource( 7 )]
 transform = Transform( 1.09931e-07, -3.66438e-08, -0.83831, -0.83831, -4.80525e-15, -1.09931e-07, 0, 0.83831, -3.66438e-08, -5.29691, -0.392041, -1.83424 )
@@ -100,10 +100,12 @@ autoplay = "candle_light_anim"
 anims/candle_light_anim = SubResource( 4 )
 
 [node name="candle_light" type="OmniLight" parent="PageBackViewport/AnimationPlayer"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.08816, -0.304494, -0.987207 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.08816, -0.368779, -0.987207 )
 light_color = Color( 1, 0.494118, 0, 1 )
-light_energy = 5.14186
+light_energy = 5.0
 shadow_enabled = true
+shadow_bias = 1.255
+shadow_contact = 0.071
 omni_range = 0.499
 
 [node name="Sprite" type="Sprite" parent="."]
