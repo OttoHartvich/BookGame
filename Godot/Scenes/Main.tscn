@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://TextGenerator/TextGenerator.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/BookManager.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Enviroment.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/dungeon_map.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/shader/sketch.gdshader" type="Shader" id=9]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.709497 )
@@ -37,8 +38,26 @@ tracks/0/keys = {
 [sub_resource type="ViewportTexture" id=3]
 viewport_path = NodePath("PageBackViewport")
 
+[sub_resource type="ShaderMaterial" id=10]
+shader = ExtResource( 9 )
+
 [sub_resource type="ViewportTexture" id=8]
 viewport_path = NodePath("Viewport")
+
+[sub_resource type="Shader" id=11]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+void fragment() {
+	vec4 c = textureLod(SCREEN_TEXTURE, SCREEN_UV, 0.0).rgba;
+	c.r = 1.0 - c.r;
+	c.g = 1.0 - c.g;
+	c.b = 1.0 - c.b;
+	COLOR.rgba = c;
+}"
+
+[sub_resource type="ShaderMaterial" id=12]
+shader = SubResource( 11 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
@@ -106,7 +125,7 @@ anims/candle_light_anim = SubResource( 4 )
 [node name="candle_light" type="OmniLight" parent="PageBackViewport/AnimationPlayer"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.08816, -0.368779, -0.987207 )
 light_color = Color( 1, 0.494118, 0, 1 )
-light_energy = 5.0
+light_energy = 4.0
 shadow_enabled = true
 shadow_bias = 1.255
 shadow_contact = 0.071
@@ -119,21 +138,34 @@ centered = false
 
 [node name="Viewport" type="Viewport" parent="."]
 size = Vector2( 100, 100 )
+size_override_stretch = true
 transparent_bg = true
 handle_input_locally = false
 
 [node name="Camera" type="Camera" parent="Viewport"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.11157, 2.46086 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.213, 2.461 )
+fov = 90.0
+near = 0.5
 
 [node name="dungeon_map" parent="Viewport" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.29968, -1.57837 )
 
 [node name="SpotLight" type="SpotLight" parent="Viewport"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.29908, 2.88707 )
+transform = Transform( 0.896911, 0, -0.44221, 0, 1, 0, 0.44221, 0, 0.896911, -1.64068, 9.29908, 4.74612 )
 light_energy = 16.0
+spot_range = 8.271
 
 [node name="sprite_dungeon" type="Sprite" parent="."]
-position = Vector2( 1213, 689 )
-scale = Vector2( 3.00073, 2.80109 )
+material = SubResource( 10 )
+position = Vector2( 1211, 702 )
+scale = Vector2( 2, 2 )
 z_index = 2
 texture = SubResource( 8 )
+
+[node name="ColorRect" type="ColorRect" parent="sprite_dungeon"]
+visible = false
+material = SubResource( 12 )
+margin_left = -50.0
+margin_top = -50.0
+margin_right = 50.0
+margin_bottom = 50.0
