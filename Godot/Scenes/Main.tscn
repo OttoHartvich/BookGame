@@ -8,7 +8,7 @@
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.709497 )
-colors = PoolColorArray( 1, 0.788557, 0.582031, 1, 0, 0, 0, 1 )
+colors = PoolColorArray( 0.609375, 0.469689, 0.333252, 1, 0, 0, 0, 1 )
 
 [sub_resource type="GradientTexture2D" id=2]
 gradient = SubResource( 1 )
@@ -38,6 +38,7 @@ script = ExtResource( 1 )
 script = ExtResource( 6 )
 
 [node name="Light2D" type="Light2D" parent="BookManager"]
+visible = false
 position = Vector2( 962, 220 )
 scale = Vector2( 51.4375, 44.4688 )
 texture = SubResource( 2 )
@@ -62,8 +63,9 @@ margin_top = 0.0
 margin_right = 0.0
 margin_bottom = 0.0
 
-[node name="scene_darkness" type="ColorRect" parent="BookManager"]
-modulate = Color( 1, 1, 1, 0.858824 )
+[node name="scene_darkness" type="ColorRect" parent="BookManager/Menu"]
+visible = false
+modulate = Color( 1, 1, 1, 0.65098 )
 margin_right = 1920.0
 margin_bottom = 1080.0
 color = Color( 0, 0, 0, 1 )

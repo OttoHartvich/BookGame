@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://TextGenerator/Decisions.gd" type="Script" id=1]
 [ext_resource path="res://TextGenerator/TextGenerator.gd" type="Script" id=2]
@@ -10,6 +10,9 @@
 [ext_resource path="res://TextGenerator/RichTextLabel.gd" type="Script" id=8]
 [ext_resource path="res://gameplay_theme.tres" type="Theme" id=9]
 [ext_resource path="res://Assets/Book2D/book_base.png" type="Texture" id=10]
+[ext_resource path="res://bookmark1.tres" type="Theme" id=11]
+[ext_resource path="res://bookmark3.tres" type="Theme" id=12]
+[ext_resource path="res://bookmark2.tres" type="Theme" id=13]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("PageViewport")
@@ -96,16 +99,38 @@ texture = SubResource( 2 )
 centered = false
 
 [node name="Interface" type="Node2D" parent="."]
-rotation = -0.0296706
 z_index = 1
 z_as_relative = false
 
+[node name="Inventory_button" type="Button" parent="Interface"]
+margin_left = 1016.0
+margin_top = 33.0
+margin_right = 1259.0
+margin_bottom = 134.0
+theme = ExtResource( 11 )
+text = "Inventory"
+
+[node name="Map_button" type="Button" parent="Interface"]
+margin_left = 1271.0
+margin_top = 33.0
+margin_right = 1514.0
+margin_bottom = 134.0
+theme = ExtResource( 13 )
+text = "Map"
+
+[node name="Notes_button" type="Button" parent="Interface"]
+margin_left = 1524.0
+margin_top = 32.0
+margin_right = 1767.0
+margin_bottom = 133.0
+theme = ExtResource( 12 )
+text = "Notes"
+
 [node name="Story" type="MarginContainer" parent="Interface"]
-margin_left = 525.0
-margin_top = 279.0
-margin_right = 883.0
-margin_bottom = 830.0
-rect_rotation = 1.56444
+margin_left = 207.0
+margin_top = 190.0
+margin_right = 870.0
+margin_bottom = 971.0
 theme = ExtResource( 9 )
 custom_constants/margin_right = 0
 custom_constants/margin_top = 0
@@ -113,16 +138,16 @@ custom_constants/margin_left = 0
 custom_constants/margin_bottom = 0
 
 [node name="VFlowContainer" type="VBoxContainer" parent="Interface/Story"]
-margin_right = 358.0
-margin_bottom = 551.0
+margin_right = 663.0
+margin_bottom = 781.0
 grow_horizontal = 0
 grow_vertical = 0
 alignment = 1
 
 [node name="TextRender" type="RichTextLabel" parent="Interface/Story/VFlowContainer"]
 modulate = Color( 0.517647, 0, 0, 1 )
-margin_right = 358.0
-margin_bottom = 543.0
+margin_right = 663.0
+margin_bottom = 773.0
 size_flags_vertical = 3
 bbcode_enabled = true
 meta_underlined = false
@@ -133,14 +158,14 @@ deselect_on_focus_loss_enabled = false
 script = ExtResource( 3 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Interface/Story/VFlowContainer"]
-margin_top = 547.0
-margin_right = 358.0
-margin_bottom = 547.0
+margin_top = 777.0
+margin_right = 663.0
+margin_bottom = 777.0
 
 [node name="Decisions" type="GridContainer" parent="Interface/Story/VFlowContainer"]
-margin_top = 551.0
-margin_right = 358.0
-margin_bottom = 551.0
+margin_top = 781.0
+margin_right = 663.0
+margin_bottom = 781.0
 size_flags_vertical = 0
 columns = 2
 script = ExtResource( 1 )
