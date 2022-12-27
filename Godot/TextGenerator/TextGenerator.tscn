@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://TextGenerator/Decisions.gd" type="Script" id=1]
 [ext_resource path="res://TextGenerator/TextGenerator.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://TextGenerator/BookPage.gd" type="Script" id=7]
 [ext_resource path="res://TextGenerator/RichTextLabel.gd" type="Script" id=8]
 [ext_resource path="res://gameplay_theme.tres" type="Theme" id=9]
+[ext_resource path="res://Assets/Book2D/book_base.png" type="Texture" id=10]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("PageViewport")
@@ -33,9 +34,11 @@ physics_object_picking = true
 
 [node name="book" parent="BookViewport" instance=ExtResource( 5 )]
 transform = Transform( 1.31134e-07, -3.82137e-15, -1, -1, 4.37114e-08, -1.31134e-07, 4.37114e-08, 1, 1.91069e-15, 0, 0, -0.944225 )
+visible = false
 
 [node name="Camera" type="Camera" parent="BookViewport"]
 transform = Transform( 1, 6.33314e-05, -6.69038e-05, -6.33201e-05, 1, 0.000168443, 6.69145e-05, -0.000168439, 1, 0, 0, -0.3 )
+visible = false
 current = true
 fov = 28.2
 
@@ -48,11 +51,13 @@ physics_object_picking = true
 
 [node name="Camera" type="Camera" parent="PageViewport"]
 transform = Transform( 1, 6.33314e-05, -6.69038e-05, -6.33201e-05, 1, 0.000168443, 6.69145e-05, -0.000168439, 1, 0.706, 0, -0.3 )
+visible = false
 current = true
 fov = 28.2
 
 [node name="page" parent="PageViewport" instance=ExtResource( 4 )]
 transform = Transform( 1.31134e-07, -3.82137e-15, -1, -1, 4.37114e-08, -1.31134e-07, 4.37114e-08, 1, 1.91069e-15, 0.705921, 0.000724792, -0.946925 )
+visible = false
 script = ExtResource( 7 )
 
 [node name="PageBackViewport" type="Viewport" parent="."]
@@ -64,11 +69,13 @@ physics_object_picking = true
 
 [node name="Camera" type="Camera" parent="PageBackViewport"]
 transform = Transform( 1, 6.33314e-05, -6.69038e-05, -6.33201e-05, 1, 0.000168443, 6.69145e-05, -0.000168439, 1, 1.352, 0, -0.3 )
+visible = false
 current = true
 fov = 28.2
 
 [node name="page2" parent="PageBackViewport" instance=ExtResource( 4 )]
 transform = Transform( -2.21482e-07, -0.0227397, 0.999741, -1, 1.31134e-07, -2.18557e-07, -1.2613e-07, -0.999741, -0.0227397, 1.35358, 0.000724792, -0.930096 )
+visible = false
 
 [node name="Page" type="Sprite" parent="."]
 z_index = 1
@@ -167,3 +174,8 @@ script = ExtResource( 8 )
 margin_top = 19.0
 margin_right = 338.0
 margin_bottom = 19.0
+
+[node name="BookBase" type="Sprite" parent="."]
+position = Vector2( 953, 569 )
+scale = Vector2( 0.558823, 0.558824 )
+texture = ExtResource( 10 )
