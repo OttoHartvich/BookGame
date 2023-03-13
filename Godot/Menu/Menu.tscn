@@ -1,146 +1,101 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=10 format=3 uid="uid://diq3gdmxjp56"]
 
-[ext_resource path="res://Menu/Menu.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Book.gd" type="Script" id=2]
-[ext_resource path="res://Resources/Book.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/2D/menu_bg.png" type="Texture" id=4]
-[ext_resource path="res://menu_theme.tres" type="Theme" id=5]
-[ext_resource path="res://Assets/Fonts/Island_Moments/IslandMoments-Regular.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://Assets/3D/book/book.gltf" type="PackedScene" id=7]
-[ext_resource path="res://Animation/Menumenu_light_flicker_anim.tres" type="Animation" id=8]
+[ext_resource type="Script" path="res://Menu/Menu.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dg0xotjau1a22" path="res://Assets/2D/menu_bg.png" id="4"]
+[ext_resource type="Theme" uid="uid://bovdparwyjef7" path="res://menu_theme.tres" id="5"]
+[ext_resource type="Animation" path="res://Animation/Menumenu_light_flicker_anim.tres" id="8"]
 
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
+[sub_resource type="SpriteFrames" id="2"]
 
-[sub_resource type="CanvasItemMaterial" id=4]
-blend_mode = 1
-
-[sub_resource type="Gradient" id=5]
-colors = PoolColorArray( 0.820313, 0.384521, 0, 1, 0, 0, 0, 1 )
-
-[sub_resource type="GradientTexture2D" id=6]
-gradient = SubResource( 5 )
-fill = 1
-fill_from = Vector2( 0.495833, 0.525 )
-fill_to = Vector2( 0.7625, 0.191667 )
-
-[sub_resource type="DynamicFont" id=1]
-size = 72
-font_data = ExtResource( 6 )
-
-[node name="Menu" type="CanvasLayer"]
-script = ExtResource( 1 )
-
-[node name="BackgroundLevel" type="Spatial" parent="."]
-visible = false
-
-[node name="ViewportContainer" type="ViewportContainer" parent="BackgroundLevel"]
-visible = false
-__meta__ = {
-"_edit_use_anchors_": true
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_alliw"]
+_data = {
+"menu_light_flicker_anim": ExtResource("8")
 }
 
-[node name="Viewport" type="Viewport" parent="BackgroundLevel/ViewportContainer"]
-size = Vector2( 1920, 1080 )
-handle_input_locally = false
-render_target_update_mode = 0
+[sub_resource type="CanvasItemMaterial" id="4"]
+blend_mode = 1
 
-[node name="Camera" type="Camera" parent="BackgroundLevel/ViewportContainer/Viewport"]
+[sub_resource type="Gradient" id="5"]
+colors = PackedColorArray(0.820313, 0.384521, 0, 1, 0, 0, 0, 1)
 
-[node name="book" parent="BackgroundLevel/ViewportContainer/Viewport" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, -1, -0.707107, 0.707107, 3.09086e-08, 0.707107, 0.707107, -3.09086e-08, 0, 0, -0.722925 )
-visible = false
-script = ExtResource( 2 )
+[sub_resource type="GradientTexture2D" id="6"]
+gradient = SubResource("5")
+fill = 1
+fill_from = Vector2(0.495833, 0.525)
+fill_to = Vector2(0.7625, 0.191667)
 
-[node name="book2" parent="BackgroundLevel/ViewportContainer/Viewport" instance=ExtResource( 7 )]
-transform = Transform( -4.37114e-08, 0, -1, -0.707107, 0.707107, 3.09086e-08, 0.707107, 0.707107, -3.09086e-08, -0.00244379, 0.00676818, -0.716486 )
-visible = false
-
-[node name="Sprite3D" type="Sprite3D" parent="BackgroundLevel/ViewportContainer/Viewport"]
-transform = Transform( 1.03072, 0, 0, 0, 0.962498, 0, 0, 0, 1, 0, 0, -7.13936 )
-texture = ExtResource( 4 )
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource("1")
 
 [node name="Menu_2Dbackground" type="Node2D" parent="."]
 
 [node name="TextureRect" type="TextureRect" parent="Menu_2Dbackground"]
-margin_right = 1920.0
-margin_bottom = 1080.0
-texture = ExtResource( 4 )
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4")
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Menu_2Dbackground"]
-frames = SubResource( 2 )
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Menu_2Dbackground"]
+sprite_frames = SubResource("2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Menu_2Dbackground"]
 autoplay = "menu_light_flicker_anim"
-anims/menu_light_flicker_anim = ExtResource( 8 )
+libraries = {
+"": SubResource("AnimationLibrary_alliw")
+}
 
-[node name="Sprite" type="Sprite" parent="Menu_2Dbackground/AnimationPlayer"]
-self_modulate = Color( 0.294118, 0.294118, 0.294118, 1 )
-material = SubResource( 4 )
-position = Vector2( 1260, 525 )
-scale = Vector2( 3.9375, 3.9375 )
-texture = SubResource( 6 )
+[node name="Sprite2D" type="Sprite2D" parent="Menu_2Dbackground/AnimationPlayer"]
+self_modulate = Color(0.247059, 0.247059, 0.247059, 1)
+material = SubResource("4")
+position = Vector2(1260, 525)
+scale = Vector2(3.9375, 3.9375)
+texture = SubResource("6")
 
 [node name="Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
-margin_left = 380.0
-margin_top = 438.0
-margin_right = 656.0
-margin_bottom = 642.0
+layout_mode = 0
+offset_left = 380.0
+offset_top = 438.0
+offset_right = 656.0
+offset_bottom = 642.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource( 5 )
+theme = ExtResource("5")
 
 [node name="Title" type="Label" parent="Menu/VBoxContainer"]
-margin_right = 276.0
-margin_bottom = 83.0
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-theme = ExtResource( 5 )
-custom_colors/font_color = Color( 0.505882, 0, 0, 1 )
-custom_fonts/font = SubResource( 1 )
+theme = ExtResource("5")
 text = "Crimson Ink"
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu/VBoxContainer"]
-margin_top = 87.0
-margin_right = 276.0
-margin_bottom = 108.0
-custom_constants/margin_top = 21
+layout_mode = 2
 
 [node name="StartBtn" type="Button" parent="Menu/VBoxContainer"]
-margin_top = 112.0
-margin_right = 276.0
-margin_bottom = 140.0
+layout_mode = 2
 size_flags_vertical = 0
 text = "Start"
-align = 0
 
 [node name="SettingsBtn" type="Button" parent="Menu/VBoxContainer"]
-margin_top = 144.0
-margin_right = 276.0
-margin_bottom = 172.0
+layout_mode = 2
 size_flags_vertical = 0
 text = "Settings"
-align = 0
 
 [node name="QuitBtn" type="Button" parent="Menu/VBoxContainer"]
-margin_top = 176.0
-margin_right = 276.0
-margin_bottom = 204.0
+layout_mode = 2
 size_flags_vertical = 0
 text = "Quit"
-align = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu"]
 visible = false
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 

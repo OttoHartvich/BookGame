@@ -1,16 +1,16 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://icon.png" type="Texture2D" id=2]
 
 [node name="SettingsMenu" type="PopupMenu"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -460.0
-margin_top = -295.0
-margin_right = 461.0
-margin_bottom = 294.0
+offset_left = -460.0
+offset_top = -295.0
+offset_right = 461.0
+offset_bottom = 294.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -23,43 +23,43 @@ __meta__ = {
 [node name="SettingTabs" type="TabContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-tab_align = 0
+tab_alignment = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Video" type="Tabs" parent="SettingTabs"]
+[node name="Video" type="TabBar" parent="SettingTabs"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+offset_left = 4.0
+offset_top = 32.0
+offset_right = -4.0
+offset_bottom = -4.0
 tab_close_display_policy = 2
 
-[node name="Sprite" type="Sprite" parent="SettingTabs/Video"]
+[node name="Sprite2D" type="Sprite2D" parent="SettingTabs/Video"]
 texture = ExtResource( 2 )
 
-[node name="Audio" type="Tabs" parent="SettingTabs"]
+[node name="Audio" type="TabBar" parent="SettingTabs"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 43.0
-margin_right = -4.0
-margin_bottom = -4.0
+offset_left = 4.0
+offset_top = 43.0
+offset_right = -4.0
+offset_bottom = -4.0
 
-[node name="Sprite" type="Sprite" parent="SettingTabs/Audio"]
+[node name="Sprite2D" type="Sprite2D" parent="SettingTabs/Audio"]
 texture = ExtResource( 2 )
 
-[node name="GamePlay" type="Tabs" parent="SettingTabs"]
+[node name="GamePlay" type="TabBar" parent="SettingTabs"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 43.0
-margin_right = -4.0
-margin_bottom = -4.0
+offset_left = 4.0
+offset_top = 43.0
+offset_right = -4.0
+offset_bottom = -4.0
 
-[node name="Sprite" type="Sprite" parent="SettingTabs/GamePlay"]
+[node name="Sprite2D" type="Sprite2D" parent="SettingTabs/GamePlay"]
 texture = ExtResource( 2 )

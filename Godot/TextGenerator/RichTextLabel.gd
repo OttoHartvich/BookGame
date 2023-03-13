@@ -2,8 +2,8 @@ extends RichTextLabel
 
 func _ready():
 	
-	GameEvents.connect("pick_up_item", self,"update_bbc_text")
-	GameEvents.connect("use_item", self,"update_bbc_text")
+	GameEvents.connect("pick_up_item",Callable(self,"update_bbc_text"))
+	GameEvents.connect("use_item",Callable(self,"update_bbc_text"))
 	
 func update_bbc_text(_item):
 	var text_array =[]
@@ -11,8 +11,7 @@ func update_bbc_text(_item):
 		if item == null:
 			pass
 		text_array.append(item.label)
-	var text = array_to_string(text_array)
-	self.bbcode_text = text
+	update_bbc_text(array_to_string(text_array))
 
 func array_to_string(arr: Array) -> String:
 	var s = ""

@@ -1,6 +1,6 @@
-extends Spatial
+extends Node3D
 
-onready var animation_player = $AnimationPlayer
+@onready var animation_player = $AnimationPlayer
 
 func _ready():
 	animation_player.seek(1.25, true) 

@@ -16,10 +16,10 @@ var turning_page = false
 func _ready():
 	if current_page == null:
 		change_page("Intro")
-	GameEvents.connect("change_page", self,"change_page")
-	GameEvents.connect("pick_up_item", self,"pick_up_item_to_inventory")
-	GameEvents.connect("use_item", self,"use_item_from_inventory")
-	GameEvents.connect("game_end", self,"switch_to_end_screen")
+	GameEvents.connect("change_page",Callable(self,"change_page"))
+	GameEvents.connect("pick_up_item",Callable(self,"pick_up_item_to_inventory"))
+	GameEvents.connect("use_item",Callable(self,"use_item_from_inventory"))
+	GameEvents.connect("game_end",Callable(self,"switch_to_end_screen"))
 
 func change_page(new_page):
 	var json = StoryJson.load_json(new_page)
@@ -41,4 +41,4 @@ func find_item_in_library(item):
 			return i
 
 func switch_to_end_screen(reason):
-	get_tree().change_scene("res://Scenes/" + reason + ".tscn")
+	get_tree().change_scene_to_file("res://Scenes/" + reason + ".tscn")

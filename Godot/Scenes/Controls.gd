@@ -1,6 +1,6 @@
 extends Node
 
-export(NodePath) onready var settings_menu = get_node(settings_menu) as PopupMenu
+@export_node_path("PopupMenu") var settings_menu
 
 func _input(event):
 	if event.is_action_pressed("escape"):

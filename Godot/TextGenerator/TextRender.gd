@@ -2,8 +2,8 @@ extends RichTextLabel
 
 func _ready():
 	change_page("")
-	GameEvents.connect("change_page", self,"change_page")
-	connect("meta_clicked", self, "handle_click")
+	GameEvents.connect("change_page",Callable(self,"change_page"))
+	connect("meta_clicked",Callable(self,"handle_click"))
 
 func change_page(_page):
 	self.percent_visible = 0
@@ -25,7 +25,7 @@ func parse_text(text_json_array):
 			else: 
 				start_tag = "[" + snippet.states.default.tag.strip_edges(true,true) + snippet.states.default.props + "]"
 				end_tag = "[/" + snippet.states.default.tag + "]"
-				if snippet.states.default.class=="item":
+				if snippet.states.default.class = "item":
 					start_tag = start_tag + "[color=black]"
 					end_tag =  "[/color]" + end_tag
 			#if item color in item color
@@ -41,4 +41,4 @@ func handle_click(action):
 
 func update_text():
 	var new_text = parse_text(GameState.current_page.text)
-	self.bbcode_text = new_text
+	self.text = new_text

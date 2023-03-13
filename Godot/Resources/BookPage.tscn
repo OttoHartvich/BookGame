@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://Assets/3D/book/book_page.gltf" type="PackedScene" id=1]
-
-[node name="book_page" instance=ExtResource( 1 )]

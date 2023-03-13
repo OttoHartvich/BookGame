@@ -1,11 +1,11 @@
-extends Spatial
+extends Node3D
 
-onready var animation_player = $AnimationPlayer
+@onready var animation_player = $AnimationPlayer
 var playing
 var was_playing
 
 func _ready():
-	GameEvents.connect("turn_page",self,"turn_animation")
+	GameEvents.connect("turn_page",Callable(self,"turn_animation"))
 
 func turn_animation(new_page):
 	animation_player.play("page_armatureAction002")
