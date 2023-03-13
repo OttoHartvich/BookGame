@@ -8,3 +8,13 @@ res://Autoload/GameState/GameState.tscn
 res://Scenes/Main.tscn
 res://TextGenerator/TextGenerator.tscn
 res://TextGenerator/RichTextLabel.gd
+res://Resources/bookPage.gd
+res://Resources/pageButton.gd
+res://Resources/textChunk.gd
+res://Enums/enums.gd
+res://Enums/buttonType.gd
+res://Autoload/StoryJson/Pages/page1.tres
+res://Resources/BookPage.gd
+res://Resources/TextChunk.gd
+res://Resources/ButtonType.gd
+res://Resources/Enums.gd

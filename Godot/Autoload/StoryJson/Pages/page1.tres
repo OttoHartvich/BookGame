@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BookPage" load_steps=2 format=3 uid="uid://dlam8ybdrchwa"]
+
+[ext_resource type="Script" path="res://Resources/BookPage.gd" id="1_0blnh"]
+
+[resource]
+script = ExtResource("1_0blnh")
+text = Array[Resource("res://Resources/TextChunk.gd")]([])
+buttons = Array[Resource("res://Resources/PageButton.gd")]([])
+id = "page1"
