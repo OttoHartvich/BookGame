@@ -1,24 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6jx0ui7qur5k"]
+[gd_scene load_steps=4 format=3 uid="uid://c6jx0ui7qur5k"]
 
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://bt507bnpc5fhk" path="res://TextGenerator/TextGenerator.tscn" id="2"]
 [ext_resource type="PackedScene" path="res://Autoload/SettingsMenu/SettingsMenu.tscn" id="3"]
-[ext_resource type="Script" path="res://Scenes/Controls.gd" id="4"]
-
-[sub_resource type="Shader" id=11]
-code = "shader_type canvas_item;
-render_mode unshaded;
-
-void fragment() {
-	vec4 c = textureLod(SCREEN_TEXTURE, SCREEN_UV, 0.0).rgba;
-	c.r = 1.0 - c.r;
-	c.g = 1.0 - c.g;
-	c.b = 1.0 - c.b;
-	COLOR.rgba = c;
-}"
-
-[sub_resource type="ShaderMaterial" id=12]
-shader = SubResource( 11 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1")
@@ -26,10 +10,6 @@ script = ExtResource("1")
 [node name="BookManager" type="Node" parent="."]
 
 [node name="Book" parent="BookManager" instance=ExtResource("2")]
-
-[node name="Controls" type="Node" parent="BookManager"]
-script = ExtResource("4")
-settings_menu = NodePath("../Menu/SettingsMenu")
 
 [node name="Menu" type="Node2D" parent="BookManager"]
 z_index = 2
