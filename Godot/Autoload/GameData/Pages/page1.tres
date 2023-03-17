@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="BookPage" load_steps=5 format=3 uid="uid://dlam8ybdrchwa"]
+
+[ext_resource type="Script" path="res://Resources/BookPage.gd" id="1_0blnh"]
+[ext_resource type="Script" path="res://Resources/TextChunk.gd" id="2_isj3a"]
+
+[sub_resource type="Resource" id="Resource_psnan"]
+script = ExtResource("2_isj3a")
+id = ""
+label = "First text"
+isVisible = true
+isClickable = false
+tags = Array[String]([])
+eventTargets = Array[Resource("res://Resources/EventTarget.gd")]([])
+
+[sub_resource type="Resource" id="Resource_4446l"]
+script = ExtResource("2_isj3a")
+id = "firstItem"
+label = "Item Button"
+isVisible = true
+isClickable = true
+tags = Array[String]([])
+eventTargets = Array[Resource("res://Resources/EventTarget.gd")]([])
+
+[resource]
+script = ExtResource("1_0blnh")
+text = Array[ExtResource("2_isj3a")]([SubResource("Resource_psnan"), SubResource("Resource_4446l")])
+buttons = Array[Resource("res://Resources/PageButton.gd")]([])
+id = "page1"
+onLoadEventTargets = Array[Resource("res://Resources/EventTarget.gd")]([])

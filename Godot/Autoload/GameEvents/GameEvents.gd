@@ -1,9 +1,10 @@
 extends Node
-
 signal on_start_game;
 signal on_game_over;
-signal turn_page(page);
-signal change_page(page);
-signal pick_up_item(item);
-signal use_item(item);
-signal game_end(reason);
+signal turn_page(pageId);
+signal change_page(pageid);
+signal pick_up_item(itemId);
+signal use_item(itemId);
+signal gain_character_info(infoId,characterId)
+signal gain_location_info(infoId,locationId)
+signal game_end(reasonId);

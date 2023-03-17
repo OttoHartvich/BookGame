@@ -17,10 +17,10 @@ config/icon="res://icon.png"
 
 [autoload]
 
-GameEvents="*res://Autoload/GameEvents/GameEvents.tscn"
-StoryJson="*res://Autoload/StoryJson/StoryJson.tscn"
 GameState="*res://Autoload/GameState/GameState.tscn"
-Library="*res://Autoload/ContentLibrary/Library.tscn"
+GameEvents="*res://Autoload/GameEvents/GameEvents.gd"
+StoryJson="*res://Autoload/GameData/DataManager.gd"
+DataManager="*res://Autoload/GameData/DataManager.tscn"
 
 [display]
 

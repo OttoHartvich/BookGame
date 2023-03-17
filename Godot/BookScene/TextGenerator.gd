@@ -4,6 +4,7 @@ extends Node2D
 @export var text_speed = 2;
 @export_node_path("RichTextLabel") var text_render_path
 @onready var text_render := get_node(text_render_path) as RichTextLabel
+var current_page: BookPage
 
 func _ready():
 	text_render.visible_ratio = 0

@@ -1,2 +1,3 @@
-res://Autoload/StoryJson/Pages
-res://Enums
+res://Autoload/GameData
+res://Autoload/GameEvents
+res://Autoload/GameState

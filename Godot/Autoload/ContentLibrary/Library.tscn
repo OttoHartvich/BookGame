@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dr15c2q15upkv"]
-
-[ext_resource type="Script" path="res://Autoload/ContentLibrary/Library.gd" id="1"]
-
-[node name="Node" type="Node"]
-script = ExtResource("1")
