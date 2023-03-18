@@ -1,10 +1,20 @@
 extends Node
+enum COMPONENT_ENUM {
+	INVENTORY,
+	TEXT,
+	BUTTONS,
+	CHARACTER_INFO,
+	LOCATION_INFO,
+}
+
 signal on_start_game;
 signal on_game_over;
-signal turn_page(pageId);
-signal change_page(pageid);
-signal pick_up_item(itemId);
-signal use_item(itemId);
-signal gain_character_info(infoId,characterId)
-signal gain_location_info(infoId,locationId)
-signal game_end(reasonId);
+# Updates the game state
+signal change_page(pageId:String);
+# Updates the page component using the game state page id
+signal reload_page(pageId:String);
+signal pick_up_item(itemId:String);
+signal use_item(itemId:String);
+signal gain_character_info(infoId:String)
+signal gain_location_info(infoId:String)
+signal reload_component(triggersIds: Array[String],listeners:Array[COMPONENT_ENUM])

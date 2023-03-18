@@ -1,7 +1,6 @@
 extends RichTextLabel
 
 func _ready():
-	
 	GameEvents.connect("pick_up_item",Callable(self,"update_bbc_text"))
 	GameEvents.connect("use_item",Callable(self,"update_bbc_text"))
 	

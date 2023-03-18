@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwk801io0aooq"]
+[gd_scene load_steps=6 format=3 uid="uid://cdhbgome8a05g"]
 
-[ext_resource type="Script" path="res://BookScene/TextGenerator.gd" id="1_lrh3q"]
+[ext_resource type="Script" path="res://BookScene/BookManager.gd" id="1_n3dio"]
 [ext_resource type="Theme" uid="uid://dw461oeh0ir5f" path="res://gameplay_theme.tres" id="2_oxtnj"]
 [ext_resource type="Script" path="res://BookScene/TextRender.gd" id="3_elp4f"]
 [ext_resource type="Script" path="res://BookScene/RichTextLabel.gd" id="4_ln1ts"]
@@ -51,7 +51,7 @@ func recreate_buttons(_page) -> void:
 
 [node name="Book" type="Node2D"]
 z_as_relative = false
-script = ExtResource("1_lrh3q")
+script = ExtResource("1_n3dio")
 text_render_path = NodePath("Interface/Story/VFlowContainer/TextRender")
 
 [node name="Interface" type="Node2D" parent="."]
