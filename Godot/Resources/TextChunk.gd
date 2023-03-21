@@ -6,4 +6,4 @@ class_name TextChunk
 @export var isVisible := true
 @export var isClickable := false
 @export var tags: Array[String] = []
-@export var eventTargets: Array[EventTarget]
+@export var onClickTargets: Array[String]
