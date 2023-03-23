@@ -1,6 +1,13 @@
 res://default_env.tres
-res://Autoload/GameData/DataManager.tscn
+res://BookScene/BookScene.tscn
 res://menu_theme.tres
 res://gameplay_theme.tres
-res://BookScene/TextRenderer.gd
+res://Menu/Menu.tscn
+res://Scenes/Main.tscn
+res://Autoload/GameEvents/GameEvents.tscn
+res://Autoload/GameData/DataManager.tscn
+res://Autoload/GameState/GameState.tscn
+res://BookScene/BookManager.gd
 res://Autoload/GameState/GameState.gd
+res://Autoload/GameData/DataManager.gd
+res://BookScene/TextRenderer.gd

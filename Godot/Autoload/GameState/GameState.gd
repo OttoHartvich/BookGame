@@ -10,12 +10,16 @@ var location_information_list: Array[String]
 func _ready():
 	load_game_state()
 	if current_page_id == '':
-		change_page("Introduction")
+		current_page_id = 'Introduction'
 	print(current_page_id)
 	# currently loads before page so doesnt trigger signals etc
+	GameEvents.connect("on_start_game",Callable(self,"on_start_game"))
 	GameEvents.connect("change_page",Callable(self,"change_page"))
 	GameEvents.connect("pick_up_item",Callable(self,"pick_up_item_to_inventory"))
 	GameEvents.connect("use_item",Callable(self,"use_item_from_inventory"))
+
+func on_start_game() -> void:
+	change_page(current_page_id)
 
 func load_game_state() -> void:
 	print("loading game state ...")
