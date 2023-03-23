@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmgkusjhvjfpq"]
+
+[ext_resource type="Texture2D" uid="uid://0hvik5dgtywp" path="res://Assets/2D/base/book_base.png" id="1_dtnvt"]
+[ext_resource type="Texture2D" uid="uid://6wje0k5m4ayh" path="res://Assets/2D/base/00004-129127678.png" id="2_vj8sn"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1408.0
+offset_bottom = 672.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BookBase" type="Sprite2D" parent="."]
+texture = ExtResource("1_dtnvt")
+centered = false
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_right = 3328.0
+offset_bottom = 1768.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Left" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 1500
+theme_override_constants/margin_bottom = 1600
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/HBoxContainer/Left"]
+position = Vector2(824, 712)
+texture = ExtResource("2_vj8sn")
+
+[node name="Right" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/HBoxContainer/Right"]
+position = Vector2(-636, 1224)
+texture = ExtResource("2_vj8sn")

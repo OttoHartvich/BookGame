@@ -1,1 +1,7 @@
+Sprite2D
+MarginContainer
+HBoxContainer
+WorldEnvironment
+CanvasLayer
+Control
 Node
