@@ -7,63 +7,70 @@
 
 [sub_resource type="GDScript" id="GDScript_58tr6"]
 script/source = "extends GridContainer
-
-@export(NodePath) onready var text_render = get_node(text_render) as RichTextLabel
-func _init():
-	if self.get_child_count() == 0:
-		recreate_buttons(\"\")
-
-func _ready():
-	GameEvents.connect(\"turn_page\",Callable(self,\"disable_buttons\"))
-	GameEvents.connect(\"change_page\",Callable(self,\"recreate_buttons\"))
-
-func _process(_delta):
-	if text_render.percent_visible == 1 and self.modulate.a == 0: 
-		self.modulate.a = 1
-		enable_buttons(\"\")
-	if text_render.percent_visible != 1 and self.modulate.a == 1:
-		self.modulate.a = 0
-
-func delete_buttons(_page):
-	for n in self.get_children():
-		self.remove_child(n)
-		n.queue_free()
-		
-func disable_buttons(_page):
-	for n in self.get_children():
-		n.disabled = true
-
-func enable_buttons(_page):
-	for n in self.get_children():
-		n.disabled = false
-
-func recreate_buttons(_page) -> void:
-	#look for new page info
-	delete_buttons(\"\")
-	for n in GameState.current_page.decisions:
-		var button = load(\"res://Resources/GenericButton.tscn\").instantiate()
-		button.text = n.label
-		button.target_page = n.target_page
-		self.add_child(button)
-	disable_buttons(\"\")
-
+#
+##@export(NodePath) onready var text_render = get_node(text_render) as RichTextLabel
+#func _init():
+#	if self.get_child_count() == 0:
+#		recreate_buttons(\"\")
+#
+#func _ready():
+#	GameEvents.connect(\"turn_page\",Callable(self,\"disable_buttons\"))
+#	GameEvents.connect(\"change_page\",Callable(self,\"recreate_buttons\"))
+#
+#func _process(_delta):
+#	if text_render.percent_visible == 1 and self.modulate.a == 0: 
+#		self.modulate.a = 1
+#		enable_buttons(\"\")
+#	if text_render.percent_visible != 1 and self.modulate.a == 1:
+#		self.modulate.a = 0
+#
+#func delete_buttons(_page):
+#	for n in self.get_children():
+#		self.remove_child(n)
+#		n.queue_free()
+#		
+#func disable_buttons(_page):
+#	for n in self.get_children():
+#		n.disabled = true
+#
+#func enable_buttons(_page):
+#	for n in self.get_children():
+#		n.disabled = false
+#
+#func recreate_buttons(_page) -> void:
+#	#look for new page info
+#	delete_buttons(\"\")
+#	for n in GameState.current_page.decisions:
+#		var button = load(\"res://Resources/GenericButton.tscn\").instantiate()
+#		button.text = n.label
+#		button.target_page = n.target_page
+#		self.add_child(button)
+#	disable_buttons(\"\")
+#
+#
 "
 
-[node name="Book" type="Node2D"]
+[node name="Book" type="Control"]
 z_as_relative = false
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_n3dio")
+text_renderer_path = NodePath("Interface/Story/VFlowContainer/TextRenderer")
 
-[node name="Interface" type="Node2D" parent="."]
+[node name="Interface" type="PanelContainer" parent="."]
 z_index = 1
 z_as_relative = false
+layout_mode = 0
+offset_right = 536.0
+offset_bottom = 434.0
 
 [node name="Story" type="MarginContainer" parent="Interface"]
-offset_left = 525.0
-offset_top = 279.0
-offset_right = 883.0
-offset_bottom = 830.0
-rotation = 1.5708
+layout_mode = 2
 theme = ExtResource("2_oxtnj")
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="VFlowContainer" type="VBoxContainer" parent="Interface/Story"]
 layout_mode = 2
@@ -74,11 +81,12 @@ modulate = Color(0.517647, 0, 0, 1)
 layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "asdasdads"
+text = "asdasdadsasdda"
 scroll_active = false
 tab_size = 8
 meta_underlined = false
 deselect_on_focus_loss_enabled = false
+text_direction = 3
 script = ExtResource("3_pgads")
 
 [node name="MarginContainer" type="MarginContainer" parent="Interface/Story/VFlowContainer"]
@@ -89,22 +97,17 @@ layout_mode = 2
 size_flags_vertical = 0
 columns = 2
 script = SubResource("GDScript_58tr6")
-text_render = NodePath("../TextRenderer")
 
-[node name="Inventory" type="MarginContainer" parent="Interface"]
-offset_left = 1027.73
-offset_top = 293.921
-offset_right = 1385.73
-offset_bottom = 724.921
-rotation = 1.56444
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Interface/Inventory"]
+[node name="fff" type="MarginContainer" parent="Interface"]
 layout_mode = 2
 
-[node name="Inventory_placeholder" type="RichTextLabel" parent="Interface/Inventory/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Interface/fff"]
+layout_mode = 2
+
+[node name="Inventory_placeholder" type="RichTextLabel" parent="Interface/fff/VBoxContainer"]
 layout_mode = 2
 meta_underlined = false
 script = ExtResource("4_ln1ts")
 
-[node name="Inventory" type="HFlowContainer" parent="Interface/Inventory/VBoxContainer"]
+[node name="Inventory" type="HFlowContainer" parent="Interface/fff/VBoxContainer"]
 layout_mode = 2

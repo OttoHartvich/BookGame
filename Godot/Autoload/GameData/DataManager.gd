@@ -17,13 +17,11 @@ func load_save_data() -> Dictionary:
 	return data
 
 func load_page_from_library(id: String) -> BookPage:
-	var file_path: String = 'res://Autoload/Book/Pages/' + id + '.tres'
-	var file = FileAccess.open(file_path,FileAccess.READ_WRITE)
-	if file.get_error():
-		print_debug("Couldn't find or open file %s. Error code: %s" %[file_path,file])
-	var data = file
-	file.close()
-	return data
+	var file_path: String = 'res://Autoload/GameData/Pages/' + id + '.tres'
+	var file: Resource = null
+	if ResourceLoader.exists(file_path):
+		file = ResourceLoader.load(file_path)
+	return file
 
 func load_current_page_data() -> BookPage:
 	var data = load_save_data()

@@ -1,10 +1,3 @@
-#@export var id := ''
-#@export var label := ''
-#@export var isVisible := true
-#@export var isClickable := false
-#@export var tags: Array[String] = []
-#@export var eventTargets: Array[EventTarget]
-
 extends RichTextLabel
 var current_text: Array[TextChunk] = []
 
@@ -16,6 +9,13 @@ func reload(new_text: Array[TextChunk]):
 	var usedItems = GameState.used_item_list
 	# TODO vymyslet jak se tohle bude zobrazovat/nezobrazovat
 	current_text = new_text
+	print(JSON.stringify(new_text))
+	var labelArray = current_text.map(func(chunk): return parse_text_chunks(chunk))
+	var label = ""
+	for i in range(0,labelArray.size()):
+		label += " " + labelArray[i]
+	print(label)
+	text = label
 
 func parse_text_chunks(chunk: TextChunk) -> String:
 	var resultStart = ""
