@@ -1,48 +1,97 @@
 [gd_scene load_steps=3 format=3 uid="uid://dmgkusjhvjfpq"]
 
 [ext_resource type="Texture2D" uid="uid://0hvik5dgtywp" path="res://Assets/2D/base/book_base.png" id="1_dtnvt"]
-[ext_resource type="Texture2D" uid="uid://6wje0k5m4ayh" path="res://Assets/2D/base/00004-129127678.png" id="2_vj8sn"]
+[ext_resource type="Theme" uid="uid://dw461oeh0ir5f" path="res://gameplay_theme.tres" id="2_q15y7"]
 
-[node name="Control" type="Control"]
+[node name="Book" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 1408.0
-offset_bottom = 672.0
+offset_bottom = 688.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.577261, 0.577261)
 
 [node name="BookBase" type="Sprite2D" parent="."]
 texture = ExtResource("1_dtnvt")
 centered = false
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 319
+theme_override_constants/margin_top = 187
+theme_override_constants/margin_right = 298
+theme_override_constants/margin_bottom = 141
+
+[node name="ContentContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-offset_right = 3328.0
-offset_bottom = 1768.0
+theme_override_constants/separation = 290
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="LeftPageContainer" type="VBoxContainer" parent="MarginContainer/ContentContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 130
+
+[node name="TextContainer" type="MarginContainer" parent="MarginContainer/ContentContainer/LeftPageContainer"]
+custom_minimum_size = Vector2(0, 1000)
+layout_direction = 1
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="PageText" type="RichTextLabel" parent="MarginContainer/ContentContainer/LeftPageContainer/TextContainer"]
+layout_mode = 2
+theme = ExtResource("2_q15y7")
+text = "TADY SE BUDE GENEROVAT TEXT"
+autowrap_mode = 2
+
+[node name="ButtonContainer" type="MarginContainer" parent="MarginContainer/ContentContainer/LeftPageContainer"]
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 
-[node name="Left" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ContentContainer/LeftPageContainer/ButtonContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 300
-theme_override_constants/margin_top = 200
-theme_override_constants/margin_right = 1500
-theme_override_constants/margin_bottom = 1600
 
-[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/HBoxContainer/Left"]
-position = Vector2(824, 712)
-texture = ExtResource("2_vj8sn")
-
-[node name="Right" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+[node name="Takhle se tu budou vypisovat options" type="Label" parent="MarginContainer/ContentContainer/LeftPageContainer/ButtonContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 200
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 0
-theme_override_constants/margin_bottom = 0
+theme = ExtResource("2_q15y7")
+text = "Option 1 NENI FINALNI KOMPONENTA"
+autowrap_mode = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/HBoxContainer/Right"]
-position = Vector2(-636, 1224)
-texture = ExtResource("2_vj8sn")
+[node name="option 2" type="Label" parent="MarginContainer/ContentContainer/LeftPageContainer/ButtonContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_q15y7")
+text = "Option 2 NENI FINALNI KOMPONENTA"
+autowrap_mode = 2
+
+[node name="option 3" type="Label" parent="MarginContainer/ContentContainer/LeftPageContainer/ButtonContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_q15y7")
+text = "Option 3 NENI FINALNI KOMPONENTA"
+autowrap_mode = 2
+
+[node name="RightPageContainer" type="VBoxContainer" parent="MarginContainer/ContentContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer3" type="PanelContainer" parent="MarginContainer/ContentContainer/RightPageContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ContentContainer/RightPageContainer/PanelContainer3"]
+layout_mode = 2
+text = "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"
+autowrap_mode = 2
+
+[node name="PanelContainer4" type="PanelContainer" parent="MarginContainer/ContentContainer/RightPageContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ContentContainer/RightPageContainer/PanelContainer4"]
+layout_mode = 2
+text = "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"
+autowrap_mode = 2

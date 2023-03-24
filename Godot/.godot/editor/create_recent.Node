@@ -1,5 +1,11 @@
-Sprite2D
+VBoxContainer
+RichTextLabel
 MarginContainer
+Container
+PanelContainer
+Camera2D
+Label
+Sprite2D
 HBoxContainer
 WorldEnvironment
 CanvasLayer

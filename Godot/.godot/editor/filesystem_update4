@@ -1,10 +1,10 @@
 res://default_env.tres
-res://Scenes/Main.tscn
+res://BookScene/Component/book_background.tscn
 res://menu_theme.tres
 res://gameplay_theme.tres
 res://Menu/Menu.tscn
 res://BookScene/BookScene.tscn
+res://Scenes/Main.tscn
 res://Autoload/GameEvents/GameEvents.tscn
 res://Autoload/GameData/DataManager.tscn
 res://Autoload/GameState/GameState.tscn
-res://BookScene/Component/book_background.tscn
