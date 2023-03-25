@@ -28,14 +28,15 @@ signal reload_component(triggersIds: Array[String],listeners:Array[COMPONENT_ENU
 # signalName: String
 # arguments: Array[String]
 #}
-func parseSignal(signalString:String) -> Dictionary:
-	var result: Dictionary
+func parseAndEmitSignal(signalString:String) -> void:
+	var result: Dictionary = {}
 	var stringParsedAsArray = signalString.split("_")
-	result.id = stringParsedAsArray[0]
-	result.signal_name = stringParsedAsArray[1]
+	result.target_id = stringParsedAsArray[0]
+	result.source_id = stringParsedAsArray[1]
+	result.signal_name = stringParsedAsArray[2]
 	result.arguments = []
-	var i = 2
+	var i = 3
 	while i < stringParsedAsArray.size():
 		result.arguments.append(stringParsedAsArray[i])
 		i+=1
-	return result
+	emit_signal(result.signal_name,result.target_id,result.source_id,result.arguments)

@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmgkusjhvjfpq"]
+[gd_scene load_steps=5 format=3 uid="uid://dmgkusjhvjfpq"]
 
-[ext_resource type="Texture2D" uid="uid://0hvik5dgtywp" path="res://Assets/2D/base/book_base.png" id="1_dtnvt"]
-[ext_resource type="Theme" uid="uid://dw461oeh0ir5f" path="res://gameplay_theme.tres" id="2_q15y7"]
+[ext_resource type="Script" path="res://BookScene/BookManager.gd" id="1_3u3c7"]
+[ext_resource type="Texture2D" uid="uid://0hvik5dgtywp" path="res://Assets/2D/base/book_base.png" id="2_gq74w"]
+[ext_resource type="Theme" uid="uid://dw461oeh0ir5f" path="res://gameplay_theme.tres" id="3_u8esx"]
+[ext_resource type="Script" path="res://BookScene/TextRenderer.gd" id="4_2wh0m"]
 
 [node name="Book" type="Control"]
 layout_mode = 3
@@ -13,9 +15,13 @@ offset_bottom = 688.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.577261, 0.577261)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_3u3c7")
+text_renderer_path = NodePath("MarginContainer/ContentContainer/LeftPageContainer/TextContainer/TextRenderer")
 
 [node name="BookBase" type="Sprite2D" parent="."]
-texture = ExtResource("1_dtnvt")
+texture = ExtResource("2_gq74w")
 centered = false
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -45,11 +51,23 @@ layout_direction = 1
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="PageText" type="RichTextLabel" parent="MarginContainer/ContentContainer/LeftPageContainer/TextContainer"]
+[node name="TextRenderer" type="RichTextLabel" parent="MarginContainer/ContentContainer/LeftPageContainer/TextContainer"]
+modulate = Color(0.517647, 0, 0, 1)
 layout_mode = 2
-theme = ExtResource("2_q15y7")
-text = "TADY SE BUDE GENEROVAT TEXT"
-autowrap_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 40
+theme_override_font_sizes/italics_font_size = 40
+theme_override_font_sizes/bold_italics_font_size = 40
+theme_override_font_sizes/mono_font_size = 40
+bbcode_enabled = true
+text = "TESTTESTTESTTESTTESTTESTTESTTEST"
+scroll_active = false
+tab_size = 8
+meta_underlined = false
+deselect_on_focus_loss_enabled = false
+text_direction = 3
+script = ExtResource("4_2wh0m")
 
 [node name="ButtonContainer" type="MarginContainer" parent="MarginContainer/ContentContainer/LeftPageContainer"]
 custom_minimum_size = Vector2(0, 300)
@@ -60,19 +78,19 @@ layout_mode = 2
 
 [node name="Takhle se tu budou vypisovat options" type="Label" parent="MarginContainer/ContentContainer/LeftPageContainer/ButtonContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_q15y7")
+theme = ExtResource("3_u8esx")
 text = "Option 1 NENI FINALNI KOMPONENTA"
 autowrap_mode = 3
 
 [node name="option 2" type="Label" parent="MarginContainer/ContentContainer/LeftPageContainer/ButtonContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_q15y7")
+theme = ExtResource("3_u8esx")
 text = "Option 2 NENI FINALNI KOMPONENTA"
 autowrap_mode = 2
 
 [node name="option 3" type="Label" parent="MarginContainer/ContentContainer/LeftPageContainer/ButtonContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_q15y7")
+theme = ExtResource("3_u8esx")
 text = "Option 3 NENI FINALNI KOMPONENTA"
 autowrap_mode = 2
 

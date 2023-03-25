@@ -54,7 +54,7 @@ func save_game(gameState: Dictionary) -> void:
 	
 # UNUSED MIGHT BE USEFUL?
 func resource_to_dict(resource:Resource) -> Dictionary:
-	var result: Dictionary
+	var result: Dictionary = {}
 	var properties = resource.get_script_property_list()
 	for i in range(properties.size()):
 		var property_name = properties[i]

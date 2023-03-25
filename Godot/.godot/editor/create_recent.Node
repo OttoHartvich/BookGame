@@ -1,13 +1,13 @@
-VBoxContainer
+Control
+Sprite2D
 RichTextLabel
+VBoxContainer
 MarginContainer
 Container
 PanelContainer
 Camera2D
 Label
-Sprite2D
 HBoxContainer
 WorldEnvironment
 CanvasLayer
-Control
 Node

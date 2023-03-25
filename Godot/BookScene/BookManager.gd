@@ -1,7 +1,7 @@
 extends Control
 
 
-@export var text_speed = 0.01;
+@export var text_speed = 0.05;
 @export_node_path("RichTextLabel") var text_renderer_path
 @onready var text_renderer := get_node(text_renderer_path) as RichTextLabel
 #@export_node_path("RichTextLabel") var buttons_path
@@ -18,9 +18,9 @@ func reload_page(pageId) -> void:
 	print("new page: ",new_page)
 	current_page = new_page
 	text_renderer.reload(current_page.text)
-	#buttons.reload(current_page.buttons)
-	# TODO dalsi onload funkce???
-	
+# buttons.reload(current_page.buttons)
+# TODO dalsi onload funkce???
+
 func _process(_delta):
 	if text_renderer.visible_ratio <= 1:
 		text_renderer.visible_ratio = text_renderer.visible_ratio + text_speed;

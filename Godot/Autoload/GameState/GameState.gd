@@ -5,6 +5,8 @@ var item_invetory_list: Array[String]
 var used_item_list: Array[String]
 var character_information_list: Array[String]
 var location_information_list: Array[String]
+# kdyz se vytrigeruje event tak by to melo pridat tady do array, zaroven by ten event asi mel obsahovat origin i cil
+var triggered_id_list: Array[String]
 # var hidden_trigger_list: Array[String] Could work just like inventory and be sent along side the item ids for signals
 
 func _ready():
