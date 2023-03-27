@@ -29,6 +29,7 @@ signal reload_component(triggersIds: Array[String],listeners:Array[COMPONENT_ENU
 # arguments: Array[String]
 #}
 func parseAndEmitSignal(signalString:String) -> void:
+	return
 	var result: Dictionary = {}
 	var stringParsedAsArray = signalString.split("_")
 	result.target_id = stringParsedAsArray[0]

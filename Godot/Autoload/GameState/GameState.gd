@@ -13,7 +13,6 @@ func _ready():
 	load_game_state()
 	if current_page_id == '':
 		current_page_id = 'Introduction'
-	print(current_page_id)
 	# currently loads before page so doesnt trigger signals etc
 	GameEvents.connect("on_start_game",Callable(self,"on_start_game"))
 	GameEvents.connect("change_page",Callable(self,"change_page"))
@@ -34,7 +33,7 @@ func load_game_state() -> void:
 		set(key,value)
 
 func save_game_state() -> void:
-	print("saving game ...")
+	print("saving game state...")
 	var property_list := {
 		"current_page_id": current_page_id,
 		"item_invetory_list": item_invetory_list,
@@ -60,7 +59,7 @@ func use_item_from_inventory(item_id) -> void:
 	var i = 0
 	while i < item_invetory_list.size():
 		if item_invetory_list[i]  == item_id:
-			print("using up item: ", item_id)
+			print("using item: ", item_id)
 			item_invetory_list.remove_at(i)
 			used_item_list.append(item_id)
 			GameEvents.emit_signal('reload_component',[item_id],[GameEvents.COMPONENT_ENUM.INVENTORY,GameEvents.COMPONENT_ENUM.TEXT,GameEvents.COMPONENT_ENUM.BUTTONS])

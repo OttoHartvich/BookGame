@@ -1,44 +1,62 @@
 extends RichTextLabel
-var current_text: Array[TextChunk] = []
+const component_type= GameEvents.COMPONENT_ENUM.TEXT
+
+var text_array: Array[String] = []
+
 
 func _ready():
-	connect("meta_clicked",Callable(self,"handle_click"))
+	pass
+	#connect("reload_component",Callable(self,"handle_reload_component"))
 
-func reload(new_text: Array[TextChunk]):
+func reload(new_text: String) -> void:
 	#var itemsInInvetory = GameState.item_invetory_list
 	#var usedItems = GameState.used_item_list
-	# TODO vymyslet jak se tohle bude zobrazovat/nezobrazovat
-	current_text = new_text
-	var labelArray = current_text.map(func(chunk): return parse_text_chunks(chunk))
-	var label = ""
-	for i in range(0,labelArray.size()):
-		label += " " + labelArray[i]
-	print(label)
-	clear()
-	append_text(label)
-	print("current text:", text)
+
+	var text_array = parse_text_to_array(new_text)
+	# process text array here 
+	# TODO !!!!!!!!!!!!!!!!!!!!!!! TODO
+	var processed_text_array = text_array
+	
+	var bbcode_string = repack_text(processed_text_array)
+	reload_text(bbcode_string)
+	print("current text:",get_parsed_text())
 	#text = label
 
-func parse_text_chunks(chunk: TextChunk) -> String:
-	var resultStart = ""
-	var resultEnd = ""
-	if !chunk.isVisible:
-		return ""
+func reload_text(new_bbcode: String) -> void:
+	clear()
+	append_text(new_bbcode)
 
-	for i in chunk.tags.size():
-		if i%2:
-			resultEnd += chunk.tags[i]
-		else:
-			resultStart = chunk.tags[i] + resultStart
+# naparsuju si ten string podle tagu vsechno co je uzavreny [] tak bude v array a zaroven i text. regex je zbytecne komplikovany.
+func deactivate_item_in_text(id:String,existingText:String) -> void:
+	pass
 
-	if chunk.isClickable:
-		for target in chunk.onClickTargets:
-			resultEnd += "[/url]"
-			resultStart = "[url=" + target + "]" + resultStart
+func repack_text(component_array: Array[String]) -> String:
+	var label := ""
+	for i in range(0,component_array.size()):
+		label += component_array[i]
+	return label
 
-	var result = resultStart + chunk.label + resultEnd
+func parse_text_to_array(input_text:String) -> Array[String]:
+	var result: Array[String]
+	var index := 0
+	var stop_index:=0
+	while index < input_text.length():
+		print("stop index ", stop_index, " index ", index)
+		if input_text[index] == '[':
+			result.append(input_text.substr(stop_index,index-stop_index-1))
+			stop_index = index - 1
+			pass
+		if input_text[index] == ']':
+			result.append(input_text.substr(stop_index,index-stop_index+1))
+			stop_index = index + 1
+			pass
+		if input_text[index] != ']' and index == input_text.length() - 1:
+			result.append(input_text.substr(stop_index,index-stop_index))
+		index += 1
+	print(result)
 	return result
 
-func handle_click(meta:String):
-	GameEvents.parseSignal(meta)
-
+func _on_meta_clicked(meta):
+	print("clicked: " , meta)
+	GameEvents.parseAndEmitSignal(meta)
+	#deactivate_item_in_text(meta,bbcode) # Replace with function body.

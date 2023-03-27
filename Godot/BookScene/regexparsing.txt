@@ -1,0 +1,29 @@
+text je tady a potom tady a tady je item a tohle ma byt cerveny
+
+co musi delat
+kdyz picknu item tak ten item ztrati efekty
+kdyz clicknu itemem na misto v textu, tak to vypise novy text
+	- na konci by to bylo jednodussi
+	- v textu se to musi nejak lip vymyslet, asi by to slo char po charu
+
+mozny render char by char=
+1. naparsovat textdata do bbcode textu
+	i. smazani url tagu kolem itemu
+		var regex = RegEx.new()
+		regex.compile("\\[.*?\\](?=.*?\\[url\\])\\K\\[url\\]")
+		var new_string = regex.sub(input_string, "", 1)
+		
+		dostat string z toho range a smazat z nej vsechny tagy
+		var regex = RegEx.new()
+		regex.compile("(?<=\\[url=test\\]).*?(?=\\[/url\\])")
+		
+		potom v tomhle string udelam smazani tagu
+		var regex = "\\[.*?\\]"
+		var plain_text = bbcode_string.gsub(regex, "")
+
+2. vyfiltrovat tagy z bbcodu:
+	var regex = "\\[.*?\\]"
+	# Remove all matches of the regular expression from the string
+	var plain_text = bbcode_string.gsub(regex, "")
+3. vykreslit char po charu.
+4. kdyz se dokresli posledni char -> setne text na ulozeny bbcode data 

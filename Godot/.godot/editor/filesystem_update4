@@ -2,12 +2,13 @@ res://default_env.tres
 res://BookScene/BookBase.tscn
 res://menu_theme.tres
 res://gameplay_theme.tres
+res://BookScene/TextRenderer.gd
+res://Autoload/GameData/Pages/Introduction.tres
 res://Menu/Menu.tscn
 res://BookScene/BookScene.tscn
 res://Scenes/Main.tscn
 res://Autoload/GameEvents/GameEvents.tscn
 res://Autoload/GameData/DataManager.tscn
-res://BookScene/TextRenderer.gd
-res://BookScene/BookManager.gd
-res://Autoload/GameData/DataManager.gd
+res://BookScene/regexparsing.txt
 res://Autoload/GameEvents/GameEvents.gd
+res://Resources/BookPage.gd

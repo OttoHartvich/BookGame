@@ -27,7 +27,7 @@ func load_current_page_data() -> BookPage:
 	var data = load_save_data()
 	if data.current_page_id:
 		return load_page_from_library(data.current_page_id)
-	return load_page_from_library('introduction')
+	return load_page_from_library('Introduction')
 
 # -----------------
 # Saving functions
@@ -39,7 +39,6 @@ func save_data_to_file(data:Dictionary,path := file_path_save) -> void:
 	file.close()
 
 func save_game(gameState: Dictionary) -> void:
-	print(gameState)
 	save_data_to_file(gameState)
 
 # -----------------

@@ -1,29 +1,10 @@
-[gd_resource type="Resource" script_class="BookPage" load_steps=5 format=3 uid="uid://dlam8ybdrchwa"]
+[gd_resource type="Resource" script_class="BookPage" load_steps=2 format=3 uid="uid://dlam8ybdrchwa"]
 
 [ext_resource type="Script" path="res://Resources/BookPage.gd" id="1_snqwh"]
-[ext_resource type="Script" path="res://Resources/TextChunk.gd" id="2_dnxca"]
-
-[sub_resource type="Resource" id="Resource_psnan"]
-script = ExtResource("2_dnxca")
-id = ""
-label = "First text"
-isVisible = true
-isClickable = false
-tags = Array[String]([])
-onClickTargets = Array[String]([])
-
-[sub_resource type="Resource" id="Resource_4446l"]
-script = ExtResource("2_dnxca")
-id = "firstItem"
-label = "Item Button"
-isVisible = true
-isClickable = true
-tags = Array[String]([])
-onClickTargets = Array[String]([])
 
 [resource]
 script = ExtResource("1_snqwh")
 id = "page1"
-text = Array[ExtResource("2_dnxca")]([SubResource("Resource_psnan"), SubResource("Resource_4446l")])
+text = "text [url=piss_bucket]magic item[url] but then we continued"
 buttons = Array[Resource("res://Resources/PageButton.gd")]([])
 onLoadEventTargets = Array[String]([])
