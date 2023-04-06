@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BookPage" load_steps=2 format=3 uid="uid://cwxr7aqqbkfbd"]
+
+[ext_resource type="Script" path="res://Resources/BookPage.gd" id="1_kau7n"]
+
+[resource]
+resource_name = "Introduction"
+script = ExtResource("1_kau7n")
+id = "VelkaJeskyne"
+text = "vitej ve velky jeskyni neni cesty zpet"
+buttons = Array[Resource("res://Resources/PageButton.gd")]([])
+onLoadEventTargets = Array[String]([])

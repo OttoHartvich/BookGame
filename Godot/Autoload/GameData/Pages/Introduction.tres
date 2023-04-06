@@ -1,10 +1,24 @@
-[gd_resource type="Resource" script_class="BookPage" load_steps=2 format=3 uid="uid://dlam8ybdrchwa"]
+[gd_resource type="Resource" script_class="BookPage" load_steps=5 format=3 uid="uid://dlam8ybdrchwa"]
 
 [ext_resource type="Script" path="res://Resources/BookPage.gd" id="1_snqwh"]
+[ext_resource type="Script" path="res://Resources/PageButton.gd" id="1_yv68b"]
+
+[sub_resource type="Resource" id="Resource_p6ayj"]
+script = ExtResource("1_yv68b")
+id = ""
+label = "do velky jeskyne"
+targetEvent = "toPage_VelkaJeskyne"
+
+[sub_resource type="Resource" id="Resource_fm3tw"]
+script = ExtResource("1_yv68b")
+id = ""
+label = "do maly jeskyne"
+targetEvent = "toPage_MalaJeskyne"
 
 [resource]
+resource_name = "Introduction"
 script = ExtResource("1_snqwh")
 id = "page1"
-text = "text [url=piss_bucket]magic item[url] but then we continued"
-buttons = Array[Resource("res://Resources/PageButton.gd")]([])
+text = "text [url=pickUpItem_pissBucket]magic item[/url] but then we continued"
+buttons = Array[ExtResource("1_yv68b")]([SubResource("Resource_p6ayj"), SubResource("Resource_fm3tw")])
 onLoadEventTargets = Array[String]([])

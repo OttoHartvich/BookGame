@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://6nykmas7xekh"]
+
+[ext_resource type="Theme" uid="uid://dw461oeh0ir5f" path="res://gameplay_theme.tres" id="1_swtbs"]
+[ext_resource type="Script" path="res://BookScene/Components/PageButton.gd" id="2_4mt14"]
+
+[node name="PageButton" type="RichTextLabel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_swtbs")
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+tab_size = 8
+meta_underlined = false
+deselect_on_focus_loss_enabled = false
+text_direction = 1
+script = ExtResource("2_4mt14")
+
+[connection signal="meta_clicked" from="." to="." method="_on_meta_clicked"]

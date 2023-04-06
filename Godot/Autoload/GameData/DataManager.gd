@@ -40,30 +40,3 @@ func save_data_to_file(data:Dictionary,path := file_path_save) -> void:
 
 func save_game(gameState: Dictionary) -> void:
 	save_data_to_file(gameState)
-
-# -----------------
-# Parsing functions
-# -----------------
-	
-	
-	
-	
-	
-	
-	
-# UNUSED MIGHT BE USEFUL?
-func resource_to_dict(resource:Resource) -> Dictionary:
-	var result: Dictionary = {}
-	var properties = resource.get_script_property_list()
-	for i in range(properties.size()):
-		var property_name = properties[i]
-		var property_value = resource.get(property_name)
-		if property_value.is_instance(Resource):
-			print("checking for resource type might be buggy delete this if not")
-			property_value = resource_to_dict(property_value)
-		if typeof(property_value) == TYPE_ARRAY and property_value[0].is_instance(Resource):
-			print("checking for array type might be buggy delete this if not")
-			property_value = property_value.map(func(value): return resource_to_dict(value))
-		result[property_name] = property_value
-	result['class_name'] = resource.get_class()
-	return result

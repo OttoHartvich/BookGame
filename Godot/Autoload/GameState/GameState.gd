@@ -6,7 +6,7 @@ var used_item_list: Array[String]
 var character_information_list: Array[String]
 var location_information_list: Array[String]
 # kdyz se vytrigeruje event tak by to melo pridat tady do array, zaroven by ten event asi mel obsahovat origin i cil
-var triggered_id_list: Array[String]
+var triggered_trigger_list: Array[String]
 # var hidden_trigger_list: Array[String] Could work just like inventory and be sent along side the item ids for signals
 
 func _ready():
@@ -15,8 +15,8 @@ func _ready():
 		current_page_id = 'Introduction'
 	# currently loads before page so doesnt trigger signals etc
 	GameEvents.connect("on_start_game",Callable(self,"on_start_game"))
-	GameEvents.connect("change_page",Callable(self,"change_page"))
-	GameEvents.connect("pick_up_item",Callable(self,"pick_up_item_to_inventory"))
+	GameEvents.connect("pickUpItem",Callable(self,"pick_up_item_to_inventory"))
+	GameEvents.connect("toPage",Callable(self,"go_to_location"))
 	GameEvents.connect("use_item",Callable(self,"use_item_from_inventory"))
 
 func on_start_game() -> void:
@@ -44,26 +44,26 @@ func save_game_state() -> void:
 	DataManager.save_game(property_list)
 
 func change_page(pageId: String) -> void:
-	print("changing page to: ", pageId)
 	current_page_id = pageId
-	GameEvents.emit_signal('reload_page',pageId)
+	GameEvents.emit_signal('changePage',pageId)
 	save_game_state()
 
 func pick_up_item_to_inventory(item_id) -> void:
-	print("picking up item: ", item_id)
 	item_invetory_list.append(item_id)
-	GameEvents.emit_signal('reload_component',[item_id],[GameEvents.COMPONENT_ENUM.INVENTORY,GameEvents.COMPONENT_ENUM.TEXT])
+	GameEvents.emit_signal('reloadBook')
 	save_game_state()
 
 func use_item_from_inventory(item_id) -> void:
 	var i = 0
 	while i < item_invetory_list.size():
 		if item_invetory_list[i]  == item_id:
-			print("using item: ", item_id)
 			item_invetory_list.remove_at(i)
 			used_item_list.append(item_id)
-			GameEvents.emit_signal('reload_component',[item_id],[GameEvents.COMPONENT_ENUM.INVENTORY,GameEvents.COMPONENT_ENUM.TEXT,GameEvents.COMPONENT_ENUM.BUTTONS])
+			GameEvents.emit_signal('reloadBook')
 			save_game_state()
 			return
 		else:
 			i += 1
+
+func go_to_location(location_id) -> void:
+	change_page(location_id)
