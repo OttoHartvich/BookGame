@@ -1,4 +1,5 @@
 extends Node
+
 enum COMPONENT_ENUM {
 	INVENTORY,
 	TEXT,
@@ -7,11 +8,16 @@ enum COMPONENT_ENUM {
 	LOCATION_INFO,
 }
 
+var inventory_modals = ["Inventory", "Chart", "Notes"]
+
 signal on_start_game;
 signal on_game_over;
-# Updates the game state
+
 signal toPage(pageId:String);
 signal changePage(pageId:String);
+
+signal switchInventoryPanel(inventory_modal)
+
 signal pickUpItem(itemId:String);
 signal use_item(itemId:String);
 signal gain_character_info(infoId:String)

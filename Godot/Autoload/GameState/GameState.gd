@@ -8,6 +8,7 @@ var location_information_list: Array[String]
 # kdyz se vytrigeruje event tak by to melo pridat tady do array, zaroven by ten event asi mel obsahovat origin i cil
 var triggered_trigger_list: Array[String]
 # var hidden_trigger_list: Array[String] Could work just like inventory and be sent along side the item ids for signals
+var inventory_panel_state: int = 1
 
 func _ready():
 	load_game_state()
@@ -17,7 +18,11 @@ func _ready():
 	GameEvents.connect("on_start_game",Callable(self,"on_start_game"))
 	GameEvents.connect("pickUpItem",Callable(self,"pick_up_item_to_inventory"))
 	GameEvents.connect("toPage",Callable(self,"go_to_location"))
+	GameEvents.connect("switchInventoryPanel",Callable(self,"switch_inventory_panel"))
 	GameEvents.connect("use_item",Callable(self,"use_item_from_inventory"))
+
+func switch_inventory_panel(modal_enumerator) -> void:
+	inventory_panel_state = modal_enumerator
 
 func on_start_game() -> void:
 	change_page(current_page_id)

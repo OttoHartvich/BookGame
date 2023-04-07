@@ -1,13 +1,13 @@
+Label
+Control
+MarginContainer
+Container
 Sprite2D
 Button
 TextureButton
-MarginContainer
 VBoxContainer
-Label
 HBoxContainer
 RichTextLabel
-Control
-Container
 PanelContainer
 Camera2D
 WorldEnvironment

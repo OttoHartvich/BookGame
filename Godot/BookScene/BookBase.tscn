@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmgkusjhvjfpq"]
+[gd_scene load_steps=8 format=3 uid="uid://dmgkusjhvjfpq"]
 
 [ext_resource type="Script" path="res://BookScene/BookManager.gd" id="1_3u3c7"]
 [ext_resource type="Texture2D" uid="uid://0hvik5dgtywp" path="res://Assets/2D/base/book_base.png" id="2_gq74w"]
 [ext_resource type="PackedScene" uid="uid://bssxx4sy33b3m" path="res://BookScene/Components/InventoryButton.tscn" id="3_bab7k"]
 [ext_resource type="Script" path="res://BookScene/TextRenderer.gd" id="4_2wh0m"]
+[ext_resource type="PackedScene" uid="uid://dta6vyf50gjsh" path="res://BookScene/Components/Chart.tscn" id="5_yfs3u"]
+[ext_resource type="PackedScene" uid="uid://cew0ok7svbwww" path="res://BookScene/Components/Inventory.tscn" id="6_7nxkk"]
+[ext_resource type="PackedScene" uid="uid://qvnskohl55fn" path="res://BookScene/Components/Notes.tscn" id="7_55tal"]
 
 [node name="Book" type="Control"]
 layout_mode = 3
@@ -19,8 +22,11 @@ scale = Vector2(0.577261, 0.577261)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_3u3c7")
-text_renderer_path = NodePath("MarginContainer/VBoxContainer/ContentContainer/LeftPageContainer/TextContainer/TextRenderer")
 page_button_container_path = NodePath("MarginContainer/VBoxContainer/ContentContainer/LeftPageContainer/ButtonContainer/VBoxContainer")
+text_renderer_path = NodePath("MarginContainer/VBoxContainer/ContentContainer/LeftPageContainer/TextContainer/TextRenderer")
+inventory_panel_path = NodePath("MarginContainer/VBoxContainer/ContentContainer/RightPageContainer/PanelContainer3/Inventory")
+chart_panel_path = NodePath("MarginContainer/VBoxContainer/ContentContainer/RightPageContainer/PanelContainer3/Chart")
+notes_panel_path = NodePath("MarginContainer/VBoxContainer/ContentContainer/RightPageContainer/PanelContainer3/Notes")
 
 [node name="BookBase" type="Sprite2D" parent="."]
 texture = ExtResource("2_gq74w")
@@ -108,20 +114,19 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PanelContainer3" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContentContainer/RightPageContainer"]
+[node name="PanelContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/ContentContainer/RightPageContainer"]
+custom_minimum_size = Vector2(0, 1430)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ContentContainer/RightPageContainer/PanelContainer3"]
-layout_mode = 2
-text = "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"
-autowrap_mode = 2
-
-[node name="PanelContainer4" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContentContainer/RightPageContainer"]
+[node name="Chart" parent="MarginContainer/VBoxContainer/ContentContainer/RightPageContainer/PanelContainer3" instance=ExtResource("5_yfs3u")]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ContentContainer/RightPageContainer/PanelContainer4"]
+[node name="Inventory" parent="MarginContainer/VBoxContainer/ContentContainer/RightPageContainer/PanelContainer3" instance=ExtResource("6_7nxkk")]
+visible = false
 layout_mode = 2
-text = "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"
-autowrap_mode = 2
+
+[node name="Notes" parent="MarginContainer/VBoxContainer/ContentContainer/RightPageContainer/PanelContainer3" instance=ExtResource("7_55tal")]
+visible = false
+layout_mode = 2
 
 [connection signal="meta_clicked" from="MarginContainer/VBoxContainer/ContentContainer/LeftPageContainer/TextContainer/TextRenderer" to="MarginContainer/VBoxContainer/ContentContainer/LeftPageContainer/TextContainer/TextRenderer" method="_on_meta_clicked"]
