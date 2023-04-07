@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmgkusjhvjfpq"]
+[gd_scene load_steps=5 format=3 uid="uid://dmgkusjhvjfpq"]
 
 [ext_resource type="Script" path="res://BookScene/BookManager.gd" id="1_3u3c7"]
 [ext_resource type="Texture2D" uid="uid://0hvik5dgtywp" path="res://Assets/2D/base/book_base.png" id="2_gq74w"]
+[ext_resource type="PackedScene" uid="uid://bssxx4sy33b3m" path="res://BookScene/Components/InventoryButton.tscn" id="3_bab7k"]
 [ext_resource type="Script" path="res://BookScene/TextRenderer.gd" id="4_2wh0m"]
 
 [node name="Book" type="Control"]
@@ -9,16 +10,17 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 60.0
 offset_right = 1408.0
-offset_bottom = 688.0
+offset_bottom = 748.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.577261, 0.577261)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_3u3c7")
-text_renderer_path = NodePath("MarginContainer/ContentContainer/LeftPageContainer/TextContainer/TextRenderer")
-page_button_container_path = NodePath("MarginContainer/ContentContainer/LeftPageContainer/ButtonContainer/VBoxContainer")
+text_renderer_path = NodePath("MarginContainer/VBoxContainer/ContentContainer/LeftPageContainer/TextContainer/TextRenderer")
+page_button_container_path = NodePath("MarginContainer/VBoxContainer/ContentContainer/LeftPageContainer/ButtonContainer/VBoxContainer")
 
 [node name="BookBase" type="Sprite2D" parent="."]
 texture = ExtResource("2_gq74w")
@@ -32,26 +34,52 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 319
-theme_override_constants/margin_top = 187
+theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 298
 theme_override_constants/margin_bottom = 141
 
-[node name="ContentContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 120
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+alignment = 2
+
+[node name="InventoryButton" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("3_bab7k")]
+layout_mode = 2
+
+[node name="InventoryButton2" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("3_bab7k")]
+layout_mode = 2
+button_type = 1
+
+[node name="InventoryButton3" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("3_bab7k")]
+layout_mode = 2
+button_type = 2
+
+[node name="ContentContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 290
 
-[node name="LeftPageContainer" type="VBoxContainer" parent="MarginContainer/ContentContainer"]
+[node name="LeftPageContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContentContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 130
 
-[node name="TextContainer" type="MarginContainer" parent="MarginContainer/ContentContainer/LeftPageContainer"]
+[node name="TextContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ContentContainer/LeftPageContainer"]
 custom_minimum_size = Vector2(0, 1000)
 layout_direction = 1
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="TextRenderer" type="RichTextLabel" parent="MarginContainer/ContentContainer/LeftPageContainer/TextContainer"]
+[node name="TextRenderer" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ContentContainer/LeftPageContainer/TextContainer"]
 modulate = Color(0.517647, 0, 0, 1)
 layout_mode = 2
 size_flags_vertical = 3
@@ -69,31 +97,31 @@ deselect_on_focus_loss_enabled = false
 text_direction = 3
 script = ExtResource("4_2wh0m")
 
-[node name="ButtonContainer" type="MarginContainer" parent="MarginContainer/ContentContainer/LeftPageContainer"]
+[node name="ButtonContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ContentContainer/LeftPageContainer"]
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ContentContainer/LeftPageContainer/ButtonContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContentContainer/LeftPageContainer/ButtonContainer"]
 layout_mode = 2
 
-[node name="RightPageContainer" type="VBoxContainer" parent="MarginContainer/ContentContainer"]
+[node name="RightPageContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContentContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PanelContainer3" type="PanelContainer" parent="MarginContainer/ContentContainer/RightPageContainer"]
+[node name="PanelContainer3" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContentContainer/RightPageContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/ContentContainer/RightPageContainer/PanelContainer3"]
-layout_mode = 2
-text = "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"
-autowrap_mode = 2
-
-[node name="PanelContainer4" type="PanelContainer" parent="MarginContainer/ContentContainer/RightPageContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MarginContainer/ContentContainer/RightPageContainer/PanelContainer4"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ContentContainer/RightPageContainer/PanelContainer3"]
 layout_mode = 2
 text = "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"
 autowrap_mode = 2
 
-[connection signal="meta_clicked" from="MarginContainer/ContentContainer/LeftPageContainer/TextContainer/TextRenderer" to="MarginContainer/ContentContainer/LeftPageContainer/TextContainer/TextRenderer" method="_on_meta_clicked"]
+[node name="PanelContainer4" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContentContainer/RightPageContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ContentContainer/RightPageContainer/PanelContainer4"]
+layout_mode = 2
+text = "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"
+autowrap_mode = 2
+
+[connection signal="meta_clicked" from="MarginContainer/VBoxContainer/ContentContainer/LeftPageContainer/TextContainer/TextRenderer" to="MarginContainer/VBoxContainer/ContentContainer/LeftPageContainer/TextContainer/TextRenderer" method="_on_meta_clicked"]
